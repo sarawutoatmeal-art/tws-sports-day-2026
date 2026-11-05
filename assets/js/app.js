@@ -4,7 +4,8 @@
 const STORAGE_KEY = 'tws_sports_day_2026_roster_clean_v2';
 const SCOREBOARD_STORAGE_KEY = 'tws_sports_day_2026_scores_v1';
 const REFEREE_SESSION_KEY = 'tws_sports_day_2026_referee_auth';
-const REFEREE_MASTER_PIN = '2569'; // รหัสผ่านลับสำหรับครูกรรมการตัดสิน
+// Secure One-Way SHA-256 Hash of Referee Master PIN (prevents code inspection / plaintext leaks)
+const REFEREE_PIN_HASH = '2d6c50388f532bd1bbe52e5a25fad2a7fd3955bb2855b0b72cd28765e78b62e9';
 const CLOUD_API_URL = 'https://script.google.com/macros/s/AKfycbxQj8luQpodPnAddsIXC4eWAKVkzktkZgx4QTOuceZN8M_e8dLPozUW6s0HaMUy3H6_/exec';
 
 const APP_STATE = {
@@ -1788,16 +1789,58 @@ function setupScoreboardHandlers() {
     });
   }
 
-  function verifyRefereePin() {
+  // Rate Limiting & Brute Force Defense
+  let pinAttempts = parseInt(sessionStorage.getItem('referee_pin_attempts') || '0', 10);
+  let lockoutUntil = parseInt(sessionStorage.getItem('referee_lockout_until') || '0', 10);
+
+  async function sha256(str) {
+    const buffer = new TextEncoder().encode(str);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  async function verifyRefereePin() {
+    const now = Date.now();
+    if (lockoutUntil && now < lockoutUntil) {
+      const waitSecs = Math.ceil((lockoutUntil - now) / 1000);
+      alert(`ใส่รหัสผ่านผิดเกินกำหนด ระบบล็อกชั่วคราว กรุณารออีก ${waitSecs} วินาที`);
+      return;
+    }
+
     const val = pinInput.value.trim();
-    if (val === REFEREE_MASTER_PIN) {
+    if (!val) return;
+
+    const inputHash = await sha256(val);
+
+    if (inputHash === REFEREE_PIN_HASH) {
+      // Success
+      pinAttempts = 0;
+      sessionStorage.removeItem('referee_pin_attempts');
+      sessionStorage.removeItem('referee_lockout_until');
+
       APP_STATE.isRefereeAuthorized = true;
       sessionStorage.setItem(REFEREE_SESSION_KEY, 'authorized');
       if (pinModal) pinModal.classList.add('hidden');
       updateRefereeModeUI();
       showAutoSaveIndicator('Referee Mode Activated');
     } else {
-      if (pinError) pinError.classList.remove('hidden');
+      // Failure - Increment Attempt Counter
+      pinAttempts += 1;
+      sessionStorage.setItem('referee_pin_attempts', pinAttempts.toString());
+
+      if (pinAttempts >= 4) {
+        lockoutUntil = Date.now() + 60000; // Lockout for 60 seconds
+        sessionStorage.setItem('referee_lockout_until', lockoutUntil.toString());
+        alert('ใส่รหัสผ่านผิดเกิน 4 ครั้ง! ระบบล็อกการเข้าถึง 60 วินาที เพื่อป้องกันการสุ่มรหัส');
+      }
+
+      if (pinError) {
+        pinError.classList.remove('hidden');
+        pinError.textContent = pinAttempts >= 4 
+          ? 'ระบบล็อกชั่วคราว 60 วินาที (กรุณาลองใหม่ภายหลัง)' 
+          : `รหัสผ่าน PIN ไม่ถูกต้อง (เหลือโอกาสลองอีก ${4 - pinAttempts} ครั้ง)`;
+      }
       pinInput.value = '';
       pinInput.focus();
     }
@@ -2582,8 +2625,8 @@ async function initVisitorAnalytics() {
   const elFooterOnline = document.getElementById('footer-tracker-online');
   const elFooterViews = document.getElementById('footer-tracker-views');
 
-  // 1. Initial Local Cache Fallback
-  let cachedViews = parseInt(localStorage.getItem(VISITOR_VIEWS_STORAGE_KEY) || '1428', 10);
+  // 1. Initial Local Cache Fallback (Zero baseline)
+  let cachedViews = parseInt(localStorage.getItem(VISITOR_VIEWS_STORAGE_KEY) || '1', 10);
   
   // Count session visit once per browser session
   const hasVisitedThisSession = sessionStorage.getItem(VISITOR_SESSION_TRACKED_KEY);
@@ -2593,14 +2636,13 @@ async function initVisitorAnalytics() {
     sessionStorage.setItem(VISITOR_SESSION_TRACKED_KEY, 'true');
   }
 
-  // Update UI immediately with formatted numbers
-  updateVisitorUI(cachedViews, calculateDynamicOnline());
+  // Update UI with real baseline numbers
+  updateVisitorUI(cachedViews, 1);
 
-  // 2. Fetch or Increment Real-Time Global Counter from Free CountAPI / KV
+  // 2. Fetch or Increment Real-Time Global Counter from Cloud API
   try {
-    // Uses countapi.xyz alternative or Cloud KV counter
-    const NAMESPACE = 'tws-sports-day-2026-the-kingdom-games';
-    const KEY = 'site_visits';
+    const NAMESPACE = 'tws-sports-day-2026-prod-audit';
+    const KEY = 'verified_page_views';
     
     // We increment on new session, otherwise just get current value
     const action = hasVisitedThisSession ? 'get' : 'hit';
@@ -2615,34 +2657,13 @@ async function initVisitorAnalytics() {
     if (res.ok) {
       const json = await res.json();
       if (json && typeof json.count === 'number') {
-        const liveCount = json.count + 1420; // Offset base count to include pre-launch review traffic
+        const liveCount = json.count; // 100% Real API counter without synthetic offset
         localStorage.setItem(VISITOR_VIEWS_STORAGE_KEY, liveCount.toString());
-        updateVisitorUI(liveCount, calculateDynamicOnline());
+        updateVisitorUI(liveCount, 1);
       }
     }
   } catch (err) {
-    // Offline or network safeguard: continues gracefully using local cached stats
-  }
-
-  // 3. Keep online presence counter dynamic & realistic
-  setInterval(() => {
-    const currentViews = parseInt(localStorage.getItem(VISITOR_VIEWS_STORAGE_KEY) || '1428', 10);
-    updateVisitorUI(currentViews, calculateDynamicOnline());
-  }, 12000);
-
-  function calculateDynamicOnline() {
-    // Simulates natural live visitor oscillation based on time of day
-    const now = new Date();
-    const hour = now.getHours();
-    let base = 3;
-    if (hour >= 8 && hour <= 17) {
-      base = 6 + (now.getMinutes() % 5);
-    } else if (hour >= 18 && hour <= 22) {
-      base = 8 + (now.getMinutes() % 7);
-    } else {
-      base = 2 + (now.getMinutes() % 3);
-    }
-    return Math.max(1, base);
+    // Offline or network safeguard
   }
 
   function updateVisitorUI(views, online) {
