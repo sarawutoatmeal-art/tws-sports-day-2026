@@ -1,0 +1,395 @@
+/* ==========================================================================
+   TWS Sports Day 2026: Kingdom Games
+   Design System: Apple-Grade Modern Light Aesthetic & Anti-Overflow Architecture
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;500;600;700&family=Prompt:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Font Family Stacks - Clean Modern Sans with Prompt for Thai and Inter for English */
+  --font-royal: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Prompt", "Sarabun", sans-serif;
+  --font-serif-royal: 'Cinzel', serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", "Prompt", "Sarabun", sans-serif;
+  
+  /* Primary School Palette (Techawit Navy & Royal Gold) */
+  --tws-navy: #0B1E36;
+  --tws-navy-hover: #162F52;
+  --tws-navy-dark: #061120;
+  --tws-gold: #C59A3F;
+  --tws-gold-light: #FBF6E9;
+  --tws-gold-border: rgba(197, 154, 63, 0.25);
+
+  /* Surface System & Pure Canvas (Flat & Hairline) */
+  --surface-canvas: #F8FAFC;
+  --surface-card: #FFFFFF;
+  --surface-sunken: #F1F5F9;
+  --surface-muted: #E2E8F0;
+
+  /* Text Contrast Hierarchy */
+  --text-primary: #0B1E36;
+  --text-secondary: #475569;
+  --text-tertiary: #64748B;
+  --text-quaternary: #94A3B8;
+
+  /* Hairline Borders */
+  --border-hairline: rgba(0, 0, 0, 0.08);
+  --border-hairline-strong: rgba(0, 0, 0, 0.12);
+  --border-divider: rgba(226, 232, 240, 0.8);
+
+  /* Whisper Soft Elevation (No Neon Glows) */
+  --shadow-whisper: 0 1px 3px rgba(0, 0, 0, 0.03), 0 6px 16px rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-modal: 0 20px 40px -15px rgba(11, 30, 54, 0.15), 0 0 1px rgba(0, 0, 0, 0.2);
+
+  /* 4 Royal Kingdoms Design Tokens */
+  --amethyst-primary: #7C3AED;
+  --amethyst-surface: #FAF5FF;
+  --amethyst-border: rgba(124, 58, 237, 0.18);
+  --amethyst-badge: #6B21A8;
+
+  --crimson-primary: #DC2626;
+  --crimson-surface: #FEF2F2;
+  --crimson-border: rgba(220, 38, 38, 0.18);
+  --crimson-badge: #991B1B;
+
+  --golden-primary: #D97706;
+  --golden-surface: #FFFBEB;
+  --golden-border: rgba(217, 119, 6, 0.2);
+  --golden-badge: #92400E;
+
+  --jade-primary: #059669;
+  --jade-surface: #ECFDF5;
+  --jade-border: rgba(5, 150, 105, 0.2);
+  --jade-badge: #065F46;
+
+  /* Smooth Spring Motion */
+  --motion-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ==========================================================================
+   Base Typography & Anti-Overflow Architecture
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--surface-canvas);
+  color: var(--text-primary);
+  font-size: 15px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: clip;
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--surface-canvas);
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow-x: clip;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Heading Display Tracking (Apple Tight Scale) */
+h1, h2, h3, h4, .heading-tight {
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.font-royal {
+  font-family: var(--font-royal);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.font-cinzel {
+  font-family: var(--font-serif-royal);
+  letter-spacing: 0.02em;
+}
+
+/* Uppercase Micro Labels Tracking */
+.label-caps, .badge-caps, [data-caps] {
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Fluid Typography Helpers */
+.title-hero {
+  font-size: clamp(24px, 4.5vw, 38px);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.title-section {
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.title-card {
+  font-size: clamp(15px, 1.8vw, 17px);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.text-body-standard {
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.text-caption {
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+/* Anti-Overflow Rules & Truncation System */
+.truncate-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.anti-overflow-card {
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ==========================================================================
+   Micro-Interactions & Tap Targets (Apple iOS Standards)
+   ========================================================================== */
+
+button, a, input, select, textarea {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active:not(:disabled), 
+.btn-action:active:not(:disabled),
+.touch-card:active {
+  transform: scale(0.975);
+  transition: transform 0.12s var(--motion-spring);
+}
+
+.interactive-card {
+  transition: transform 0.18s var(--motion-spring), box-shadow 0.18s var(--motion-spring), border-color 0.18s ease;
+  border: 1px solid var(--border-hairline);
+  box-shadow: var(--shadow-whisper);
+}
+
+.interactive-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(11, 30, 54, 0.15);
+  box-shadow: 0 4px 14px rgba(11, 30, 54, 0.05);
+}
+
+/* Focus Ring */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--tws-gold);
+  outline-offset: 2px;
+}
+
+/* Frosted Glass Floating Bars */
+.frosted-glass-nav {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+  background-color: rgba(6, 17, 32, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 16px;
+  overflow-y: auto;
+}
+
+/* ==========================================================================
+   Kingdom Custom Hairline Cards
+   ========================================================================== */
+
+.card-amethyst {
+  background: #FFFFFF;
+  border: 1px solid var(--amethyst-border);
+  box-shadow: 0 1px 4px rgba(124, 58, 237, 0.04);
+}
+.card-amethyst:hover {
+  border-color: var(--amethyst-primary);
+}
+
+.card-crimson {
+  background: #FFFFFF;
+  border: 1px solid var(--crimson-border);
+  box-shadow: 0 1px 4px rgba(220, 38, 38, 0.04);
+}
+.card-crimson:hover {
+  border-color: var(--crimson-primary);
+}
+
+.card-golden {
+  background: #FFFFFF;
+  border: 1px solid var(--golden-border);
+  box-shadow: 0 1px 4px rgba(217, 119, 6, 0.04);
+}
+.card-golden:hover {
+  border-color: var(--golden-primary);
+}
+
+.card-jade {
+  background: #FFFFFF;
+  border: 1px solid var(--jade-border);
+  box-shadow: 0 1px 4px rgba(5, 150, 105, 0.04);
+}
+.card-jade:hover {
+  border-color: var(--jade-primary);
+}
+
+/* Clean Professional Table */
+.clean-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.clean-table th {
+  background-color: #F8FAFC;
+  color: var(--tws-navy);
+  font-weight: 700;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 12px 14px;
+}
+.clean-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(241, 245, 249, 0.9);
+  font-size: 13.5px;
+}
+.clean-table tbody tr {
+  transition: background-color 100ms ease;
+}
+.clean-table tbody tr:hover {
+  background-color: #F8FAFC;
+}
+
+/* Scrollbar System */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Safe Area Insets for Modern Mobile Devices (iOS Home Indicator) */
+.safe-area-bottom {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+/* Scrollable Container Touch & Desktop Enforcements */
+.overflow-x-auto {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 #F1F5F9;
+}
+.overflow-x-auto::-webkit-scrollbar {
+  height: 8px;
+}
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border-radius: 9999px;
+}
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* ==========================================================================
+   Dedicated A4 Print Styles
+   ========================================================================== */
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 8mm 8mm 8mm;
+  }
+  body {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 8.5pt;
+    line-height: 1.25;
+  }
+  .no-print, header, nav, footer, #search-student, .filter-toolbar, .btn-action, .stat-cards-container {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .page-break {
+    page-break-after: auto;
+    break-after: auto;
+  }
+  .print-card-compact {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 10px !important;
+    padding: 8px !important;
+    border: 1px solid #64748B !important;
+  }
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 8pt !important;
+  }
+  th, td {
+    border: 1px solid #CBD5E1 !important;
+    padding: 3px 5px !important;
+    color: #0B1E36 !important;
+  }
+  th {
+    background-color: #F1F5F9 !important;
+    font-weight: 700 !important;
+  }
+}

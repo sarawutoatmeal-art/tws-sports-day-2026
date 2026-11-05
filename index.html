@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TWS Sports Day 2026: Kingdom Games | Techawit School Teacher Portal</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261105_1007">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            kingdom: {
+              crimson: '#dc2626',
+              golden: '#d97706',
+              jade: '#059669',
+              amethyst: '#7c3aed'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#F8FAFC] text-[#0B1E36] min-h-screen flex flex-col antialiased selection:bg-[#0B1E36] selection:text-white">
+
+  <!-- Top Announcement Bar (Official Techawit Navy & Gold) -->
+  <div class="bg-[#0B1E36] text-white px-3 sm:px-4 py-2 sm:py-2.5 text-xs font-semibold text-center uppercase border-b border-[#C59A3F]/30 shadow-xs">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
+      <span class="inline-flex items-center gap-1.5 text-[#F4E7BD] font-bold">
+        <span class="w-2 h-2 rounded-full bg-[#C59A3F] animate-pulse"></span>
+        TECHAWIT SCHOOL OFFICIAL PORTAL
+      </span>
+      <span class="text-slate-400 hidden sm:inline">•</span>
+      <span class="text-white/90">Event Date: Friday, January 8, 2027 (8 ม.ค. 2570)</span>
+      <span class="text-slate-400 hidden md:inline">•</span>
+      <span class="text-[#F4E7BD] hidden sm:inline">Primary Campus • 232 Student Athletes</span>
+      <span class="text-slate-400 hidden lg:inline">•</span>
+      
+      <!-- Live Online & Total Views Tracker Pill -->
+      <span class="inline-flex items-center gap-2 bg-[#162F52] text-white px-2.5 py-0.5 rounded-full text-[11px] font-medium border border-white/10 shadow-2xs">
+        <span class="inline-flex items-center gap-1 text-emerald-400 font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block"></span>
+          <span id="tracker-online-now" class="font-mono font-bold">1</span> กำลังเข้าชม
+        </span>
+        <span class="text-white/30">•</span>
+        <span class="inline-flex items-center gap-1 text-slate-200">
+          <svg class="w-3 h-3 text-[#F4E7BD] inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          ยอดชม <strong id="tracker-total-views" class="font-mono text-white font-bold">--</strong> ครั้ง
+        </span>
+      </span>
+
+      <span class="text-slate-400 hidden lg:inline">•</span>
+      <span id="autosave-indicator" class="opacity-0 transition-opacity duration-300 text-[#0B1E36] bg-[#F4E7BD] px-2.5 py-0.5 rounded-full text-[10px] font-bold">
+        DATABASE SYNCED
+      </span>
+    </div>
+  </div>
+
+  <!-- Header & Hero Section (Clean White with Navy Accents & School Crest) -->
+  <header class="relative border-b border-[rgba(0,0,0,0.08)] bg-white shadow-xs overflow-hidden no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-7">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
+        
+        <!-- School Crest & Official Branding -->
+        <div class="flex flex-col sm:flex-row items-center lg:items-start gap-4 sm:gap-5 text-center sm:text-left min-w-0 w-full lg:w-auto">
+          <div class="relative shrink-0 p-1.5 rounded-2xl bg-white border border-[rgba(0,0,0,0.08)] shadow-xs">
+            <img 
+              src="assets/images/tws-logo.png" 
+              alt="Techawit School Logo โรงเรียนเตชะวิทย์" 
+              class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain"
+              onerror="this.style.display='none'"
+            />
+          </div>
+
+          <div class="space-y-2 min-w-0">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-[rgba(0,0,0,0.06)] text-[#0B1E36] text-[11px] font-black uppercase tracking-wider">
+              <span>TECHAWIT SCHOOL (โรงเรียนเตชะวิทย์)</span>
+            </div>
+            
+            <h1 class="title-hero font-royal text-[#0B1E36]">
+              TWS SPORTS DAY <span class="text-[#C59A3F]">2026</span>
+            </h1>
+            <p class="text-xs sm:text-sm font-bold font-royal text-[#0B1E36] tracking-[0.2em] uppercase flex items-center justify-center sm:justify-start gap-2">
+              <span class="inline-block w-4 h-[1px] bg-[#C59A3F]"></span>
+              <span>THE KINGDOM GAMES</span>
+              <span class="inline-block w-4 h-[1px] bg-[#C59A3F]"></span>
+            </p>
+            <p class="text-xs sm:text-sm text-slate-600 max-w-xl leading-relaxed">
+              Official faculty & staff portal for Techawit Primary Sports Day. Access 232 student rosters, 13 teacher duty departments, official time schedules, handbook medals, and A4 print center.
+            </p>
+
+            <!-- 4 Kingdom Badges Quick Preview -->
+            <div class="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-1.5 sm:gap-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-700 border border-red-200">
+                <span class="w-2 h-2 rounded-full bg-red-500"></span> Crimson Empire
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">
+                <span class="w-2 h-2 rounded-full bg-amber-500"></span> Golden Realm
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Jade Dynasty
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-purple-50 text-purple-700 border border-purple-200">
+                <span class="w-2 h-2 rounded-full bg-purple-500"></span> Amethyst Kingdom
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Official Countdown Card -->
+        <div class="countdown-container w-full lg:w-auto shrink-0">
+          <div class="p-4 sm:p-5 rounded-2xl bg-white border border-[rgba(0,0,0,0.08)] shadow-xs text-center space-y-3 w-full sm:min-w-[320px]">
+            <div class="flex items-center justify-between gap-3 border-b border-slate-100 pb-2.5">
+              <span class="text-xs font-bold uppercase tracking-wider text-[#0B1E36] flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Event Countdown
+              </span>
+              <span class="text-xs font-mono font-semibold text-slate-500">Jan 8, 2027 • 08:00 AM</span>
+            </div>
+
+            <!-- Countdown Digits -->
+            <div id="countdown-wrapper" class="grid grid-cols-4 gap-2 text-center">
+              <div class="p-2 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 min-w-0">
+                <div id="count-days" class="text-xl sm:text-2xl md:text-3xl font-black text-[#0B1E36] font-mono">00</div>
+                <div class="text-[10px] uppercase font-bold text-slate-500 mt-0.5">Days</div>
+              </div>
+              <div class="p-2 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 min-w-0">
+                <div id="count-hours" class="text-xl sm:text-2xl md:text-3xl font-black text-[#0B1E36] font-mono">00</div>
+                <div class="text-[10px] uppercase font-bold text-slate-500 mt-0.5">Hours</div>
+              </div>
+              <div class="p-2 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 min-w-0">
+                <div id="count-mins" class="text-xl sm:text-2xl md:text-3xl font-black text-[#0B1E36] font-mono">00</div>
+                <div class="text-[10px] uppercase font-bold text-slate-500 mt-0.5">Mins</div>
+              </div>
+              <div class="p-2 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 min-w-0">
+                <div id="count-secs" class="text-xl sm:text-2xl md:text-3xl font-black text-[#0B1E36] font-mono">00</div>
+                <div class="text-[10px] uppercase font-bold text-slate-500 mt-0.5">Secs</div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-center gap-2 pt-1">
+              <button onclick="switchTab('print')" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-bold bg-[#0B1E36] text-white hover:bg-[#162F52] active:scale-[0.98] transition shadow-xs min-h-[44px]">
+                <svg class="w-3.5 h-3.5 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
+                <span>A4 Print Center</span>
+              </button>
+              <a href="https://docs.google.com/document/d/1YtgJjH1ALr8UXKCoVgftZMUUhPJmnTZOV7QX4cBDgGg/edit?tab=t.0" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-800 hover:bg-slate-200 border border-slate-200 active:scale-[0.98] transition min-h-[44px]">
+                <span>Handbook Doc</span> ↗
+              </a>
+            </div>
+
+            <!-- Mini Live Traffic Badge -->
+            <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium px-1">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                <span>ออนไลน์ขณะนี้:</span>
+                <strong id="card-tracker-online" class="font-mono text-[#0B1E36] font-bold">1 คน</strong>
+              </span>
+              <span class="flex items-center gap-1 text-slate-600">
+                <span>ยอดชมรวม:</span>
+                <strong id="card-tracker-views" class="font-mono text-[#0B1E36] font-bold">-- ครั้ง</strong>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Navigation Tabs Bar (Frosted Glass Sticky Header) -->
+    <div class="border-t border-[rgba(0,0,0,0.08)] frosted-glass-nav sticky top-0 z-30">
+      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <nav class="flex items-center gap-1 sm:gap-1.5 overflow-x-auto py-2 no-scrollbar" aria-label="Main Navigation">
+          
+          <button data-tab-target="kingdoms" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border transition whitespace-nowrap bg-[#0B1E36] text-white border-[#0B1E36] shadow-xs min-h-[38px]">
+            <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            <span>4 Kingdoms</span>
+          </button>
+
+          <button data-tab-target="roster" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
+            <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <span>Rosters (232)</span>
+          </button>
+
+          <button data-tab-target="scoreboard" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
+            <svg class="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            <span>Scoreboard</span>
+          </button>
+
+          <button data-tab-target="callroom" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
+            <svg class="w-3.5 h-3.5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+            <span>Call Room</span>
+          </button>
+
+          <button data-tab-target="print" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
+            <svg class="w-3.5 h-3.5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+            <span>Print Center</span>
+          </button>
+
+          <button data-tab-target="duties" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
+            <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            <span>Duties & Staff</span>
+          </button>
+
+          <button data-tab-target="schedule" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
+            <svg class="w-3.5 h-3.5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Schedule</span>
+          </button>
+
+          <button data-tab-target="handbook" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
+            <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            <span>186 Medals</span>
+          </button>
+
+          <button data-tab-target="registration" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
+            <svg class="w-3.5 h-3.5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+            <span>Document Hub</span>
+          </button>
+
+          <button data-tab-target="siblings" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
+            <svg class="w-3.5 h-3.5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            <span>Siblings (พี่น้อง)</span>
+          </button>
+
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- ========================================== -->
+    <!-- SECTION 0: 4 KINGDOM THEMES & SHOWCASE     -->
+    <!-- ========================================== -->
+    <section id="section-kingdoms" class="tab-content-section space-y-8">
+      
+      <!-- Top Title & House Duty Breakdown Header -->
+      <div class="border-b border-slate-200 pb-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-200 mb-2">
+            <svg class="w-3.5 h-3.5 text-amber-600 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+            <span>THE 4 ROYAL KINGDOMS</span>
+          </div>
+          <h2 class="title-section font-royal text-[#0B1E36] flex items-center gap-2">
+            The Four Royal Kingdoms (แกลเลอรี 4 สี)
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            โปสเตอร์ประจำอาณาจักร สัญลักษณ์มงคล คณะคุณครูประจำสี 5 ท่าน และภารกิจหน้าที่ดูแลนักกีฬาในวันงาน
+          </p>
+        </div>
+        <div class="flex items-center gap-2 flex-wrap">
+          <button onclick="switchTab('roster')" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-bold bg-[#0B1E36] hover:bg-[#162F52] text-white shadow-xs transition min-h-[40px]">
+            <svg class="w-3.5 h-3.5 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+            <span>ดูรายชื่อนักกีฬาทั้งหมด (232 คน) →</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- House Masters 5 Key Roles Directive Card -->
+      <div class="rounded-2xl border border-indigo-100 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-5 sm:p-6 shadow-md">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-white/10">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-1.5">
+              <svg class="w-3.5 h-3.5 text-amber-300 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>หน้าที่ของครูประจำสี (House Staff Responsibilities)</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold font-royal text-white">
+              หน้าที่ของครูประจำสีทั้ง 4 สี (สีละ 5 ท่าน รวม 20 ท่าน)
+            </h3>
+            <p class="text-xs text-slate-300 mt-0.5">
+              เพื่อการดูแลนักเรียนอย่างทั่วถึง ปลอดภัย และไม่พลาดทุกรายการแข่งขันตลอดวัน
+            </p>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="px-3 py-1 rounded-xl bg-white/10 text-xs font-bold text-white border border-white/15">
+              4 สี × 5 ท่าน = 20 ท่าน
+            </span>
+          </div>
+        </div>
+
+        <!-- 3 Duty Posts Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+          <!-- Post 1: Stand Cheer -->
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400/40 transition flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-amber-400/20 text-amber-300 flex items-center justify-center">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              </div>
+              <h4 class="text-sm font-bold text-white flex items-center gap-1.5">
+                จุดที่ 1: อัฒจันทร์เชียร์ (Stand Cheer)
+              </h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                คอยประจำดูและดูแลเด็กนักเรียนทั้งหมดที่สแตนด์เชียร์ของสีตัวเอง ดูแลความปลอดภัย ความเรียบร้อย การดื่มน้ำ และการนำเชียร์
+              </p>
+            </div>
+            <div class="mt-3 pt-2.5 border-t border-white/10 text-[11px] text-amber-300/90 font-medium flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 text-amber-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+              <span>ประจำการต่อเนื่องตลอดกิจกรรม</span>
+            </div>
+          </div>
+
+          <!-- Post 2: Athlete Marshalling & Call Room -->
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-sky-400/40 transition flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-sky-400/20 text-sky-300 flex items-center justify-center">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="4" r="2"/><path d="m15 8-3 5 4 4"/><path d="m9 13-3 8"/><path d="m6 8 4 3-2 3"/></svg>
+              </div>
+              <h4 class="text-sm font-bold text-white flex items-center gap-1.5">
+                จุดที่ 2: ตามนักกีฬา & ส่งตัวลงทะเบียน
+              </h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                คอยเช็กตาราง Call Time ตามนักกีฬาของสีตัวเองในแต่ละรายการแข่งขัน ไปส่งตัวที่ <strong>จุดลงทะเบียนนักกีฬา (Call Room)</strong> ก่อนแข่ง 10 นาที
+              </p>
+            </div>
+            <div class="mt-3 pt-2.5 border-t border-white/10 text-[11px] text-sky-300/90 font-medium flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 text-sky-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+              <span>ประสานจุดรายงานตัว & เช็กหมายเลขวิ่ง</span>
+            </div>
+          </div>
+
+          <!-- Post 3: Finish Line & Medal Ceremony -->
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-emerald-400/40 transition flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-emerald-400/20 text-emerald-300 flex items-center justify-center">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+              </div>
+              <h4 class="text-sm font-bold text-white flex items-center gap-1.5">
+                จุดที่ 3: เส้นชัย & พาไปจุดรับรางวัล
+              </h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                คอยประจำอยู่ที่ <strong>จุดเส้นชัย</strong> เพื่อรับเด็กๆ ของสีตัวเองที่แข่งเสร็จแล้ว และพาไปยัง <strong>จุดรับรางวัล / แท่นโพเดียม</strong> อย่างเป็นระเบียบ
+              </p>
+            </div>
+            <div class="mt-3 pt-2.5 border-t border-white/10 text-[11px] text-emerald-300/90 font-medium flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+              <span>ดูแลความปลอดภัยหลังเข้าเส้นชัย & นำขึ้นรับเหรียญ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Kingdoms Cards Grid (Rendered by renderKingdomShowcase) -->
+      <div id="kingdoms-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Dynamically populated by app.js with uploaded posters and teacher assignments -->
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 1: ATHLETE ROSTERS & DATABASE      -->
+    <!-- ========================================== -->
+    <section id="section-roster" class="tab-content-section hidden space-y-6">
+      
+      <!-- Top Title & Roster Stats Header -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-5">
+        <div class="min-w-0">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-[#0B1E36] mb-2 border border-slate-200">
+            <span class="w-2 h-2 rounded-full bg-[#C59A3F]"></span>
+            <span>ATHLETE DATABASE</span>
+          </div>
+          <h2 class="title-section font-royal text-[#0B1E36] flex items-center gap-2">
+            Student Athlete Rosters & Database (232 Students)
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+            4 Kingdom Houses (58 athletes per house) • Click any student or press <strong>"Assign Event"</strong> to manage participation status.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <button id="btn-backup-json" class="btn-action inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-xs transition min-h-[44px]">
+            <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/></svg>
+            <span>Backup JSON</span>
+          </button>
+          <label class="btn-action inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-xs transition cursor-pointer min-h-[44px]">
+            <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l4-4m0 0l4 4m-4-4v12"/></svg>
+            <span>Restore JSON</span>
+            <input type="file" id="input-restore-json" accept=".json" class="hidden" />
+          </label>
+          <button id="btn-reset-roster" class="btn-action inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 transition min-h-[44px]">
+            <svg class="w-3.5 h-3.5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            <span>Reset All to 0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Grid (Adaptive Responsive 2-4 cols) -->
+      <div class="stat-cards-container grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div class="p-4 sm:p-5 rounded-2xl bg-white border border-[rgba(0,0,0,0.08)] shadow-xs min-w-0">
+          <span class="text-xs text-slate-500 uppercase font-semibold tracking-wider">Total Students</span>
+          <div id="stat-total-students" class="text-2xl sm:text-3xl font-black text-[#0B1E36] font-mono mt-1">232</div>
+          <span class="text-xs text-slate-500 font-medium truncate-1 block mt-0.5">11 Classrooms (G1–G6)</span>
+        </div>
+
+        <div class="p-4 sm:p-5 rounded-2xl bg-white border border-[rgba(0,0,0,0.08)] shadow-xs min-w-0">
+          <span class="text-xs text-slate-500 uppercase font-semibold tracking-wider">Assigned Athletes</span>
+          <div id="stat-assigned-students" class="text-2xl sm:text-3xl font-black text-emerald-600 font-mono mt-1">0 / 232</div>
+          <span class="text-xs text-emerald-600 font-medium truncate-1 block mt-0.5">Has ≥ 1 Event</span>
+        </div>
+
+        <div class="p-4 sm:p-5 rounded-2xl bg-white border border-[rgba(0,0,0,0.08)] shadow-xs min-w-0">
+          <span class="text-xs text-slate-500 uppercase font-semibold tracking-wider">Unassigned</span>
+          <div id="stat-zero-students" class="text-2xl sm:text-3xl font-black text-rose-600 font-mono mt-1">232</div>
+          <span class="text-xs text-rose-600 font-medium truncate-1 block mt-0.5">Awaiting Sport Entry</span>
+        </div>
+
+        <div class="p-4 sm:p-5 rounded-2xl bg-white border border-[rgba(0,0,0,0.08)] shadow-xs min-w-0">
+          <span class="text-xs text-slate-500 uppercase font-semibold tracking-wider">Participation Rate</span>
+          <div id="stat-participation-rate" class="text-2xl sm:text-3xl font-black text-[#0B1E36] font-mono mt-1">0%</div>
+          <span class="text-xs text-slate-500 font-medium truncate-1 block mt-0.5">Target: 100% Inclusion</span>
+        </div>
+      </div>
+
+      <!-- Kingdom Color Filter Selector Cards -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <!-- Amethyst -->
+        <button data-color-filter="Purple" class="text-left p-4 rounded-2xl bg-purple-50/60 border border-purple-200/80 hover:border-purple-400 transition shadow-xs group min-w-0 touch-card">
+          <div class="flex items-center justify-between gap-1.5">
+            <span class="text-[11px] font-bold text-purple-700 uppercase tracking-wider">AMETHYST</span>
+            <span id="badge-count-purple" class="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-purple-200/80 text-purple-800">0/58</span>
+          </div>
+          <div class="text-base font-black font-royal text-purple-900 mt-1 truncate-1">สีม่วง (Purple)</div>
+          <div class="text-xs text-purple-700 mt-0.5 truncate-1">Imagination • Wisdom</div>
+        </button>
+
+        <!-- Crimson -->
+        <button data-color-filter="Red" class="text-left p-4 rounded-2xl bg-red-50/60 border border-red-200/80 hover:border-red-400 transition shadow-xs group min-w-0 touch-card">
+          <div class="flex items-center justify-between gap-1.5">
+            <span class="text-[11px] font-bold text-red-700 uppercase tracking-wider">CRIMSON</span>
+            <span id="badge-count-red" class="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-red-200/80 text-red-800">0/58</span>
+          </div>
+          <div class="text-base font-black font-royal text-red-900 mt-1 truncate-1">สีแดง (Red)</div>
+          <div class="text-xs text-red-700 mt-0.5 truncate-1">Courage • Honor</div>
+        </button>
+
+        <!-- Golden -->
+        <button data-color-filter="Yellow" class="text-left p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 hover:border-amber-400 transition shadow-xs group min-w-0 touch-card">
+          <div class="flex items-center justify-between gap-1.5">
+            <span class="text-[11px] font-bold text-amber-800 uppercase tracking-wider">GOLDEN</span>
+            <span id="badge-count-yellow" class="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-amber-200/80 text-amber-900">0/58</span>
+          </div>
+          <div class="text-base font-black font-royal text-amber-950 mt-1 truncate-1">สีเหลือง (Yellow)</div>
+          <div class="text-xs text-amber-800 mt-0.5 truncate-1">Hope • Energy</div>
+        </button>
+
+        <!-- Jade -->
+        <button data-color-filter="Green" class="text-left p-4 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 hover:border-emerald-400 transition shadow-xs group min-w-0 touch-card">
+          <div class="flex items-center justify-between gap-1.5">
+            <span class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider">JADE</span>
+            <span id="badge-count-green" class="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-emerald-200/80 text-emerald-800">0/58</span>
+          </div>
+          <div class="text-base font-black font-royal text-emerald-900 mt-1 truncate-1">สีเขียว (Green)</div>
+          <div class="text-xs text-emerald-700 mt-0.5 truncate-1">Wisdom • Harmony</div>
+        </button>
+      </div>
+
+      <!-- Filter Controls & Search Toolbar -->
+      <div class="p-4 sm:p-5 rounded-2xl bg-white border border-[rgba(0,0,0,0.08)] shadow-xs space-y-3.5 filter-toolbar">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          
+          <!-- Search Input -->
+          <div class="sm:col-span-2 min-w-0">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Search Athlete Name / Nickname</label>
+            <div class="relative">
+              <input 
+                type="text" 
+                id="search-student" 
+                placeholder="Search by nickname (e.g. Ryu, Glacier, Anfield) or full name..." 
+                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 pl-9 text-xs sm:text-sm text-[#0B1E36] placeholder-slate-400 focus:outline-none focus:border-[#0B1E36] focus:bg-white transition min-h-[44px]"
+              />
+              <span class="absolute left-3 top-3 text-slate-400">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Class Filter -->
+          <div class="min-w-0">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Grade / Class</label>
+            <select id="filter-class" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-[#0B1E36] focus:outline-none focus:border-[#0B1E36] focus:bg-white transition min-h-[44px] cursor-pointer">
+              <option value="all">All Classes (11 Classes)</option>
+              <option value="G1 Giraffe">G1 Giraffe (23 students)</option>
+              <option value="G1 Beaver">G1 Beaver (24 students)</option>
+              <option value="G2 Zebra">G2 Zebra (22 students)</option>
+              <option value="G2 Kangaroo">G2 Kangaroo (22 students)</option>
+              <option value="G3 Eagle">G3 Eagle (22 students)</option>
+              <option value="G3 Falcon">G3 Falcon (22 students)</option>
+              <option value="G4 Leopard">G4 Leopard (22 students)</option>
+              <option value="G4 Panther">G4 Panther (23 students)</option>
+              <option value="G5 Liger">G5 Liger (14 students)</option>
+              <option value="G5 Tigon">G5 Tigon (14 students)</option>
+              <option value="G6 Phoenix">G6 Phoenix (24 students)</option>
+            </select>
+          </div>
+
+          <!-- Gender Filter -->
+          <div class="min-w-0">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Gender</label>
+            <select id="filter-gender" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-[#0B1E36] focus:outline-none focus:border-[#0B1E36] focus:bg-white transition min-h-[44px] cursor-pointer">
+              <option value="all">All (Boys & Girls)</option>
+              <option value="Boy">Boys (Master)</option>
+              <option value="Girl">Girls (Miss)</option>
+            </select>
+          </div>
+
+          <!-- Status Filter -->
+          <div class="min-w-0">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Registration Status</label>
+            <select id="filter-status" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-[#0B1E36] focus:outline-none focus:border-[#0B1E36] focus:bg-white transition min-h-[44px] cursor-pointer">
+              <option value="all">All Statuses</option>
+              <option value="zero">[!] Unregistered (0 events)</option>
+              <option value="one">Registered (1 event)</option>
+              <option value="two">Target Met (2 events)</option>
+              <option value="three_plus">Multi-event (3+ events)</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-slate-500 pt-3 border-t border-slate-100 flex-wrap gap-2">
+          <div id="roster-match-count" class="font-mono font-bold text-slate-700">Showing 232 students</div>
+          <button data-color-filter="all" class="text-[#0B1E36] hover:underline font-bold px-3 py-1.5 rounded-full hover:bg-slate-100 transition min-h-[36px] flex items-center">
+            Show All 4 Kingdoms ↺
+          </button>
+        </div>
+      </div>
+
+      <!-- Students Table & Mobile Card View (White & Navy Theme) -->
+      <div class="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white overflow-hidden shadow-xs">
+        <!-- Desktop Table View (Hidden on mobile) -->
+        <div class="hidden md:block overflow-x-auto">
+          <table class="w-full text-left border-collapse clean-table">
+            <thead>
+              <tr class="bg-slate-50 border-b border-slate-200 text-[11px] uppercase font-black tracking-wider text-[#0B1E36]">
+                <th class="py-3 px-3 text-center w-12">#</th>
+                <th class="py-3 px-3 w-32">Kingdom / Color</th>
+                <th class="py-3 px-3 w-36">Class & No.</th>
+                <th class="py-3 px-3">Student Full Name</th>
+                <th class="py-3 px-3 w-28">Nickname</th>
+                <th class="py-3 px-3">Assigned Events</th>
+                <th class="py-3 px-3 text-center w-40">Status & Action</th>
+              </tr>
+            </thead>
+            <tbody id="students-table-body" class="divide-y divide-slate-100 text-sm">
+              <!-- Dynamically populated by app.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mobile Athlete Cards List (Optimized for Phones) -->
+        <div id="students-mobile-list" class="block md:hidden divide-y divide-slate-100 p-2 space-y-2.5">
+          <!-- Dynamically populated by app.js for mobile phones -->
+        </div>
+      </div>
+
+      <!-- The 4 Royal Kingdoms (แกลเลอรี 4 อาณาจักรประจำสี) -->
+      <div class="mt-8 pt-6 border-t border-slate-200 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-purple-50 text-purple-900 border border-purple-200 mb-1">
+              <svg class="w-3.5 h-3.5 text-purple-700 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+              <span>4 ROYAL HOUSES</span>
+            </div>
+            <h3 class="text-xl font-black font-royal text-[#0B1E36]">
+              The Four Royal Kingdoms (แกลเลอรี 4 สี)
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+              กดเลือกดูรายชื่อและจัดการข้อมูลนักกีฬาของแต่ละสีได้ทันที (สีละ 58 คน รวม 232 คน)
+            </p>
+          </div>
+        </div>
+
+        <div id="home-kingdoms-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Dynamically populated by renderKingdomShowcase() in app.js -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION: LIVE SCOREBOARD & MEDAL TALLY     -->
+    <!-- ========================================== -->
+    <section id="section-scoreboard" class="tab-content-section hidden space-y-6">
+      
+      <!-- Scoreboard Header -->
+      <div class="border-b border-slate-200 pb-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="min-w-0">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold bg-amber-50 text-amber-800 border border-amber-200 mb-2">
+            <svg class="w-3.5 h-3.5 text-amber-600 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+            <span>Official TWS Tournament Standings (สรุปคะแนนรวม 4 สีแบบเรียลไทม์)</span>
+          </div>
+          <h2 class="title-section font-royal text-[#0B1E36] flex items-center gap-2">
+            <svg class="w-6 h-6 text-amber-500 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+            <span>Live Scoreboard & 186 Medals Tally (กระดานคะแนนและเหรียญรางวัล)</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+            เกณฑ์คะแนน: เหรียญทอง = 5 คะแนน | เหรียญเงิน = 3 คะแนน | เหรียญทองแดง = 1 คะแนน (บันทึกผลได้สดๆ คุณครูทุกท่านเห็นพร้อมกัน)
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2 flex-wrap shrink-0">
+          <!-- Referee Mode Indicator & Unlock Button -->
+          <div id="referee-lock-badge" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 border border-slate-200 min-h-[44px]">
+            <svg class="w-3.5 h-3.5 text-slate-500 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>View Only (ผู้ชมทั่วไป)</span>
+          </div>
+          <button id="btn-toggle-referee-mode" class="px-4 py-2 rounded-full bg-amber-500 hover:bg-amber-600 active:scale-[0.98] text-xs font-bold text-white shadow-xs transition flex items-center gap-1.5 min-h-[44px]">
+            <svg class="w-3.5 h-3.5 text-white inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21 2-2 2m-1.5 1.5L14 9l-1.5-1.5-3 3 1.5 1.5L9 14l-1.5-1.5L6 14l-4 4v4h4l4-4 1.5 1.5L14 17l-1.5-1.5 3.5-3.5 1.5 1.5 2-2"/></svg>
+            <span>ปลดล็อกโหมดผู้ตัดสิน</span>
+          </button>
+          <button id="btn-reset-scores" class="hidden referee-action px-3.5 py-2 rounded-full bg-white hover:bg-slate-50 border border-slate-200 active:scale-[0.98] text-xs font-semibold text-rose-600 shadow-xs transition min-h-[44px]">
+            <svg class="w-3.5 h-3.5 text-rose-500 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
+            <span>Reset Scores</span>
+          </button>
+          <button id="btn-quick-fill-modal" class="hidden referee-action px-4 py-2 rounded-full bg-[#0B1E36] hover:bg-[#162F52] active:scale-[0.98] text-xs font-bold text-white shadow-xs transition flex items-center gap-1.5 min-h-[44px]">
+            <svg class="w-3.5 h-3.5 text-white inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            <span>บันทึกผลผู้ชนะกีฬา</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 4 Kingdoms Live Leaderboard Cards -->
+      <div id="scoreboard-leaderboard-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Rendered dynamically by app.js with Rank, Total Points, and Gold/Silver/Bronze breakdown -->
+      </div>
+
+      <!-- Sports Results & Medal Allocation Table -->
+      <div class="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white p-4 sm:p-5 shadow-xs space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+          <div>
+            <h3 class="font-bold text-base text-[#0B1E36] flex items-center gap-2">
+              <svg class="w-4 h-4 text-slate-700 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+              <span>Recorded Event Results (ผลการแข่งขันแต่ละรายการ)</span>
+            </h3>
+            <p class="text-xs text-slate-500">
+              คลิกปุ่ม "แก้ไขผล" ในแต่ละแถวเพื่ออัปเดตผู้ชนะเหรียญทอง เงิน และทองแดง
+            </p>
+          </div>
+          <div class="text-xs font-bold text-slate-500">
+            Total Medals: <span class="text-amber-700 font-mono">186 Medals</span>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse clean-table text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-slate-50 border-b border-slate-200 text-[11px] uppercase font-black text-[#0B1E36]">
+                <th class="py-3 px-3 w-12 text-center">#</th>
+                <th class="py-3 px-3">รายการกีฬา (Sport Event)</th>
+                <th class="py-3 px-3">ระดับชั้น / เพศ</th>
+                <th class="py-3 px-3 w-32 text-center text-amber-600 font-black">เหรียญทอง (5)</th>
+                <th class="py-3 px-3 w-32 text-center text-slate-500 font-black">เหรียญเงิน (3)</th>
+                <th class="py-3 px-3 w-32 text-center text-amber-800 font-black">ทองแดง (1)</th>
+                <th class="py-3 px-3 w-28 text-center">จัดการ</th>
+              </tr>
+            </thead>
+            <tbody id="scoreboard-table-body" class="divide-y divide-slate-100">
+              <!-- Rendered dynamically by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION: CALL ROOM & MARSHALING QUEUE      -->
+    <!-- ========================================== -->
+    <section id="section-callroom" class="tab-content-section hidden space-y-6">
+      
+      <!-- Call Room Header -->
+      <div class="border-b border-slate-200 pb-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-blue-800 border border-blue-200 mb-2">
+            <svg class="w-3.5 h-3.5 text-blue-600 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+            <span>Official Marshaling & Athlete Staging (ฝ่ายคิวเรียกตัวนักกีฬาหน้างาน)</span>
+          </div>
+          <h2 class="text-2xl font-black font-royal text-[#0B1E36] flex items-center gap-2">
+            <svg class="w-6 h-6 text-slate-700 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></svg>
+            <span>Athlete Call Room & Live Queue (คิวรายงานตัวนักกีฬา)</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            คุณครูประจำสีและผู้ปกครองสามารถดูคิวล่วงหน้าเพื่อเตรียมพาเด็กๆ ไปรายงานตัวที่จุดปล่อยตัวล่วงหน้า 10 นาที ป้องกันการดีเลย์
+          </p>
+        </div>
+
+        <!-- Color Filter Selector for Call Room -->
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <button data-callroom-color="all" class="callroom-color-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-[#0B1E36] text-white transition shadow-xs">All Kingdoms</button>
+          <button data-callroom-color="Purple" class="callroom-color-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-purple-700 border border-purple-200 hover:bg-purple-50 transition shadow-xs flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-purple-600"></span> Amethyst</button>
+          <button data-callroom-color="Red" class="callroom-color-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-rose-700 border border-rose-200 hover:bg-rose-50 transition shadow-xs flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-600"></span> Crimson</button>
+          <button data-callroom-color="Yellow" class="callroom-color-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-amber-800 border border-amber-200 hover:bg-amber-50 transition shadow-xs flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-500"></span> Golden</button>
+          <button data-callroom-color="Green" class="callroom-color-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-emerald-700 border border-emerald-200 hover:bg-emerald-50 transition shadow-xs flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-600"></span> Jade</button>
+        </div>
+      </div>
+
+      <!-- Quick Timeline Navigator Bar -->
+      <div id="callroom-schedule-cards" class="space-y-4">
+        <!-- Rendered dynamically by app.js: Heats with Call Time, Start Time, Location, and Registered Student List -->
+      </div>
+
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- SECTION 2: PRINT CENTER (FOR HOUSE & REGISTRATION TEACHERS) -->
+    <!-- ========================================== -->
+    <section id="section-print" class="tab-content-section hidden space-y-6">
+      
+      <div class="border-b border-slate-200 pb-5">
+        <h2 class="text-2xl font-black font-royal text-[#0B1E36] flex items-center gap-2">
+          <svg class="w-6 h-6 text-slate-700 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
+          <span>Faculty & Staff A4 Print Center</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          Generate clean, formatted A4 documents ready for on-site student marshalling, event call desks, and referee scoring.
+        </p>
+      </div>
+
+      <!-- Print Selection Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Card 1: For House Masters -->
+        <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-[#0B1E36]">1. House Master Roster (สำหรับครูประจำสี)</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Print official color roster (58 students) sorted by grade and class number. Includes nicknames, sibling links, registered sports, and physical attendance checkboxes [✓].
+            </p>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Select Kingdom House:</label>
+              <select id="print-house-select" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-sm font-bold text-[#0B1E36]">
+                <option value="Purple">Amethyst Kingdom (สีม่วง - 58 Students)</option>
+                <option value="Red">Crimson Empire (สีแดง - 58 Students)</option>
+                <option value="Yellow">Golden Realm (สีเหลือง - 58 Students)</option>
+                <option value="Green">Jade Dynasty (สีเขียว - 58 Students)</option>
+                <option value="all">All Kingdoms (232 Students Master)</option>
+              </select>
+            </div>
+          </div>
+
+          <button id="btn-print-house-sheet" class="w-full py-3 rounded-xl text-sm font-bold bg-[#0B1E36] hover:bg-[#162F52] text-white transition shadow-sm flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
+            <span>Print House Roster A4</span>
+          </button>
+        </div>
+
+        <!-- Card 2: For Event Registration & Call Desk -->
+        <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-[#0B1E36]">2. Event Call Sheet (สำหรับครูลงทะเบียนนักกีฬา)</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Print official athlete call sheets categorized by event. Displays all 4 colored lanes, designated Call Time, match start time, athlete checkmarks, and referee score boxes.
+            </p>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Select Sport Category:</label>
+              <select id="print-event-select" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-sm font-bold text-[#0B1E36]">
+                <option value="all">All Sport Matches (Complete Schedule)</option>
+                <option value="Sprint">30m Sprint (22 Heats)</option>
+                <option value="Relay">6x30m Shuttle Relay (4 Divisions)</option>
+                <option value="Football">Football 5v5 Championship</option>
+                <option value="Chairball">Primary Chairball Championship</option>
+                <option value="Basketball">Basketball 3x3 Tournament</option>
+                <option value="Fastball">Fastball Throwing (Family Game)</option>
+                <option value="Hula">Hula Hoop Relay (Family Game)</option>
+                <option value="Legged">3-Legged Family Relay</option>
+              </select>
+            </div>
+          </div>
+
+          <button id="btn-print-event-sheet" class="w-full py-3 rounded-xl text-sm font-bold bg-[#0B1E36] hover:bg-[#162F52] text-white transition shadow-sm flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
+            <span>Print Event Call Sheet A4</span>
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 3: TEACHER DUTIES & STAFF SEARCH   -->
+    <!-- ========================================== -->
+    <section id="section-duties" class="tab-content-section hidden space-y-6">
+      
+      <div class="border-b border-slate-200 pb-5">
+        <h2 class="text-2xl font-black font-royal text-[#0B1E36] flex items-center gap-2">
+          <svg class="w-6 h-6 text-slate-700 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+          <span>Faculty Duties & Department Responsibilities</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          Official staff assignments synchronized directly with the Master Duty Sheet • Search your name to locate your station and responsibilities.
+        </p>
+      </div>
+
+      <!-- Teacher Search Bar & Department Pills -->
+      <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-4">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5 flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-slate-500 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <span>Search by Teacher Name</span>
+          </label>
+          <input 
+            type="text" 
+            id="search-teacher" 
+            placeholder="Type teacher name (e.g. T.June, T.Oil, T.Mary, T.Iris, T.Marky, T.Donut)..." 
+            class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-[#0B1E36] placeholder-slate-400 focus:outline-none focus:border-[#0B1E36] focus:bg-white transition"
+          />
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs text-slate-500 font-bold mr-1">Filter Department:</span>
+          <button data-duty-filter="all" class="px-3 py-1 rounded-full text-xs font-bold bg-[#0B1E36] text-white shadow-sm">All Staff</button>
+          <button data-duty-filter="Decoration" class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-200 hover:bg-amber-100 transition">ตกแต่งสถานที่ (Venue Decor)</button>
+          <button data-duty-filter="PR" class="px-3 py-1 rounded-full text-xs font-semibold bg-sky-50 text-sky-900 border border-sky-200 hover:bg-sky-100 transition">ประชาสัมพันธ์ (PR Team)</button>
+          <button data-duty-filter="Color" class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">House Masters (ครูประจำสี)</button>
+          <button data-duty-filter="Referee" class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Referees (ผู้ตัดสิน)</button>
+          <button data-duty-filter="Registration" class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Registration (ลงทะเบียน)</button>
+          <button data-duty-filter="Award" class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Awards & Medals (ฝ่ายรางวัล)</button>
+          <button data-duty-filter="Ceremony" class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">MC & Ceremonies (พิธีกร)</button>
+          <button data-duty-filter="First Aid" class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">First Aid (ปฐมพยาบาล)</button>
+          <button data-duty-filter="Photo" class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Media & Photos (สื่อภาพ)</button>
+        </div>
+      </div>
+
+      <!-- Duties Grid -->
+      <div id="duties-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Dynamically rendered -->
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 4: EVENT SCHEDULE & TIMELINE       -->
+    <!-- ========================================== -->
+    <section id="section-schedule" class="tab-content-section hidden space-y-6">
+      
+      <div class="border-b border-slate-200 pb-5">
+        <h2 class="text-2xl font-black font-royal text-[#0B1E36] flex items-center gap-2">
+          <svg class="w-6 h-6 text-slate-700 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></svg>
+          <span>Official Event Day Schedule & Call Times</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          Friday, January 8, 2027 • Main Gymnasium & Running Track • Pay special attention to highlighted <strong class="text-rose-600">Call Times</strong> for athlete assembly.
+        </p>
+      </div>
+
+      <!-- Schedule Filter Buttons -->
+      <div class="flex flex-wrap items-center gap-2 p-3 rounded-xl bg-white border border-slate-200 shadow-sm">
+        <span class="text-xs text-slate-500 font-bold mr-1">Categories:</span>
+        <button data-schedule-filter="all" class="px-3 py-1 rounded-full text-xs font-bold bg-[#0B1E36] text-white shadow-sm">All Schedule</button>
+        <button data-schedule-filter="track" class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Track Athletics (Sprint & Relays)</button>
+        <button data-schedule-filter="court" class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Team Sports (Football, Chairball, Basketball)</button>
+        <button data-schedule-filter="family" class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Family Games</button>
+        <button data-schedule-filter="special" class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Special Exhibition Clashes</button>
+        <button data-schedule-filter="ceremony" class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Ceremonies</button>
+      </div>
+
+      <!-- Timeline Container -->
+      <div class="rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div id="schedule-timeline-container" class="space-y-2">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 5: SPORTS HANDBOOK & MEDALS        -->
+    <!-- ========================================== -->
+    <section id="section-handbook" class="tab-content-section hidden space-y-6">
+      
+      <div class="border-b border-slate-200 pb-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-200 mb-2">
+            <svg class="w-3.5 h-3.5 text-amber-600 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <span>OFFICIAL HANDBOOK & MEDALS</span>
+          </div>
+          <h2 class="text-2xl font-black font-royal text-[#0B1E36] flex items-center gap-2">
+            <svg class="w-6 h-6 text-amber-600 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <span>Official Handbook, Rules & 186 Medals Overview</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            TECHAWIT PRIMARY SPORTS DAY 2026 • สูจิบัตรและคู่มือกติกาอย่างเป็นทางการ พร้อมสรุปโควตา 186 เหรียญรางวัล
+          </p>
+        </div>
+
+        <!-- Quick Access to Handbook Docs -->
+        <div class="flex items-center gap-2 shrink-0">
+          <a 
+            href="https://docs.google.com/document/d/1YtgJjH1ALr8UXKCoVgftZMUUhPJmnTZOV7QX4cBDgGg/edit?tab=t.0" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold bg-[#0B1E36] hover:bg-[#162F52] text-white shadow-xs transition min-h-[44px]"
+          >
+            <svg class="w-3.5 h-3.5 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 2v20"/></svg>
+            <span>เปิดอ่านสูจิบัตรฉบับเต็ม ↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Medals Stakes Overview Banner -->
+      <div class="p-6 rounded-2xl bg-gradient-to-r from-slate-50 via-white to-slate-50 border border-slate-200 shadow-sm">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+          <div class="p-4 rounded-xl bg-white border border-yellow-200 shadow-sm">
+            <span class="text-xs uppercase font-bold text-yellow-700">Gold Medals</span>
+            <div class="text-3xl font-black text-yellow-600 font-mono mt-1">62</div>
+            <span class="text-xs text-slate-500">1st Place Champions</span>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+            <span class="text-xs uppercase font-bold text-slate-600">Silver Medals</span>
+            <div class="text-3xl font-black text-slate-600 font-mono mt-1">62</div>
+            <span class="text-xs text-slate-500">1st Runner-Up</span>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white border border-amber-200 shadow-sm">
+            <span class="text-xs uppercase font-bold text-amber-800">Bronze Medals</span>
+            <div class="text-3xl font-black text-amber-700 font-mono mt-1">62</div>
+            <span class="text-xs text-slate-500">2nd Runner-Up</span>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[#0B1E36] text-white shadow-sm">
+            <span class="text-xs uppercase font-bold text-[#F4E7BD]">Total Medals</span>
+            <div class="text-3xl font-black text-white font-mono mt-1">186</div>
+            <span class="text-xs text-slate-300">5 Major Sport Divisions</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medal Breakdown Table -->
+      <div class="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+        <div class="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+          <h3 class="font-bold text-[#0B1E36] text-sm">Medal Allocation Breakdown by Sport Discipline</h3>
+          <span class="text-xs font-mono font-bold text-[#0B1E36]">186 Total Medals</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse clean-table">
+            <thead>
+              <tr class="bg-slate-50 border-b border-slate-200 text-[11px] uppercase font-bold tracking-wider text-[#0B1E36]">
+                <th class="py-3 px-4">Sport Competition</th>
+                <th class="py-3 px-4 text-center">Gold</th>
+                <th class="py-3 px-4 text-center">Silver</th>
+                <th class="py-3 px-4 text-center">Bronze</th>
+                <th class="py-3 px-4 text-center">Total</th>
+                <th class="py-3 px-4">Quota Guidelines & Rules</th>
+              </tr>
+            </thead>
+            <tbody id="handbook-medal-table" class="divide-y divide-slate-100 text-sm">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 6: SPORTS ENTRY HUB & ONLINE DOCS  -->
+    <!-- ========================================== -->
+    <section id="section-registration" class="tab-content-section hidden space-y-6">
+      
+      <div class="border-b border-slate-200 pb-5">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-900 border border-blue-200 mb-2">
+          <svg class="w-3.5 h-3.5 text-blue-600 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 2v20"/></svg>
+          <span>OFFICIAL DOCUMENT ARCHIVE</span>
+        </div>
+        <h2 class="text-2xl font-black font-royal text-[#0B1E36] flex items-center gap-2">
+          <svg class="w-6 h-6 text-slate-700 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          <span>Master Documents Hub & Program Guides</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          ศูนย์รวมเอกสารและคู่มือการแข่งขันทางการของโรงเรียนเตชะวิทย์ ทั้งภาษาไทยและภาษาอังกฤษ พร้อมไฟล์ Google Sheets และส่งออกข้อมูล
+        </p>
+      </div>
+
+      <!-- หมวดหมู่ที่ 1: สูจิบัตรและคู่มือกติกาหลัก (Official Master Handbooks - TH & EN) -->
+      <div class="space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+          <h3 class="text-base font-bold text-[#0B1E36]">1. สูจิบัตรและคู่มือกติกาการแข่งขัน (Official Handbooks & Programs)</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- Thai Edition -->
+          <div class="p-5 rounded-2xl bg-white border border-blue-200 shadow-xs flex flex-col justify-between hover:border-blue-400 transition interactive-card">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-bold font-mono">
+                  สูจิบัตรฉบับภาษาไทย (TH)
+                </span>
+                <span class="text-xs font-semibold text-slate-400">Google Docs</span>
+              </div>
+              <h4 class="text-base font-bold text-[#0B1E36]">สูจิบัตรและคู่มือกติกาการแข่งขัน 2569</h4>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                กำหนดการอย่างเป็นทางการ กติกาการแข่งขันแต่ละรายการ กฎความปลอดภัย ข้อปฏิบัติครูและผู้ปกครอง และรายละเอียด 186 เหรียญรางวัล
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2">
+              <a 
+                href="https://docs.google.com/document/d/1YtgJjH1ALr8UXKCoVgftZMUUhPJmnTZOV7QX4cBDgGg/edit?tab=t.0" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-bold bg-[#0B1E36] hover:bg-[#162F52] text-white transition shadow-xs min-h-[44px]"
+              >
+                <span>เปิดอ่านสูจิบัตร (ฉบับภาษาไทย)</span> ↗
+              </a>
+              <a 
+                href="https://docs.google.com/document/d/1YtgJjH1ALr8UXKCoVgftZMUUhPJmnTZOV7QX4cBDgGg/preview" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition min-h-[44px]"
+                title="เปิดมุมมองพรีวิว"
+              >
+                <svg class="w-3.5 h-3.5 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>พรีวิว</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- English Edition -->
+          <div class="p-5 rounded-2xl bg-white border border-indigo-200 shadow-xs flex flex-col justify-between hover:border-indigo-400 transition interactive-card">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200 font-bold font-mono">
+                  OFFICIAL PROGRAM (EN)
+                </span>
+                <span class="text-xs font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-2 py-0.5 rounded-md">Official PDF</span>
+              </div>
+              <h4 class="text-base font-bold text-[#0B1E36]">TWS Sports Day 2026: Official Program</h4>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Official English program itinerary (PDF), match times, sportsmanship values, scoring rubrics, safety directives, and 186 medal stakes.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2">
+              <a 
+                href="assets/docs/TWS_Sports_Day_2026_English_Program.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-bold bg-indigo-900 hover:bg-indigo-950 text-white transition shadow-xs min-h-[44px]"
+              >
+                <span>Open English Program (PDF)</span> ↗
+              </a>
+              <a 
+                href="assets/docs/TWS_Sports_Day_2026_English_Program.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition min-h-[44px]"
+                title="Preview PDF in New Tab"
+              >
+                <svg class="w-3.5 h-3.5 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>View</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- หมวดหมู่ที่ 2: ระบบแผ่นชีตคลาวด์กลาง (Google Sheets Masters) -->
+      <div class="space-y-3 pt-2">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+          <h3 class="text-base font-bold text-[#0B1E36]">2. เอกสารและฐานข้อมูลกลาง (Google Sheets Masters)</h3>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Google Sheet 1: Sports Registration -->
+          <div class="p-5 rounded-2xl bg-white border border-emerald-200 shadow-xs flex flex-col justify-between hover:border-emerald-400 transition interactive-card">
+            <div class="space-y-2">
+              <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold font-mono">
+                ATHLETE REGISTRATION
+              </span>
+              <h4 class="text-base font-bold text-[#0B1E36]">ใบส่งรายชื่อนักกีฬา 4 สี (Master Sheet)</h4>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                แท็บแยกสี (ม่วง, แดง, เหลือง, เขียว), ระบบตรวจโควตานักกีฬา, สรุปจำนวนผู้เข้าแข่งขัน และใบรายการแข่งขัน 1–8
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100">
+              <a 
+                href="https://docs.google.com/spreadsheets/d/14oRVn1mb3iiclWVlBbaR_SYpimgUbaXF/edit?gid=181845680#gid=181845680" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-bold bg-emerald-700 hover:bg-emerald-800 text-white transition shadow-xs min-h-[44px]"
+              >
+                <span>เปิด Google Sheets (ใบส่งรายชื่อ)</span> ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Google Sheet 2: Schedule & Duties -->
+          <div class="p-5 rounded-2xl bg-white border border-purple-200 shadow-xs flex flex-col justify-between hover:border-purple-400 transition interactive-card">
+            <div class="space-y-2">
+              <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200 font-bold font-mono">
+                SCHEDULE & DUTIES
+              </span>
+              <h4 class="text-base font-bold text-[#0B1E36]">ตารางแข่ง 41 รายการ & คำสั่งหน้าที่ครู</h4>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                กำหนดเวลาแข่งเรียงลำดับเวลา 41 รายการ, ผังหน้าที่บุคลากร 13 ฝ่าย, และรายชื่อห้องเรียน ป.1 - ป.6
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100">
+              <a 
+                href="https://docs.google.com/spreadsheets/d/1s1m8HwWhE6AO8pnEaz55VEN7gPWjN5FD4gRvFnVetPs/edit?gid=679114408#gid=679114408" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-bold bg-purple-700 hover:bg-purple-800 text-white transition shadow-xs min-h-[44px]"
+              >
+                <span>เปิด Google Sheets (ตาราง & หน้าที่)</span> ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Google Sheet 3: Kindergarten Master Sibling Audit -->
+          <div class="p-5 rounded-2xl bg-white border border-amber-200 shadow-xs flex flex-col justify-between hover:border-amber-400 transition interactive-card">
+            <div class="space-y-2">
+              <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 font-bold font-mono">
+                KINDERGARTEN REF
+              </span>
+              <h4 class="text-base font-bold text-[#0B1E36]">ฐานข้อมูลสีอนุบาลอ้างอิงหลัก (Ns–K.3)</h4>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                ไฟล์อ้างอิงหลักฝ่ายอนุบาลสำหรับตรวจสอบและ Recheck สีของพี่น้องข้ามระดับชั้น เพื่อให้พี่น้องทุกคนอยู่สีเดียวกัน
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100">
+              <a 
+                href="https://docs.google.com/spreadsheets/d/1t8AUXvjN3OWF03M5D1vfdKTPTmbprRx0B0a0qIRw_kg/edit?gid=994616917#gid=994616917" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-bold bg-amber-600 hover:bg-amber-700 text-white transition shadow-xs min-h-[44px]"
+              >
+                <span>เปิด Google Sheets (ฐานข้อมูลอนุบาล)</span> ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- หมวดหมู่ที่ 3: ดาวน์โหลดข้อมูล & สำรองฐานข้อมูล (Export & Data Tools) -->
+      <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h4 class="font-bold text-[#0B1E36] text-sm flex items-center gap-2">
+              <svg class="w-4 h-4 text-slate-700 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+              <span>นำเข้า/ส่งออกข้อมูลนักกีฬา (Export & Backup Center)</span>
+            </h4>
+            <p class="text-xs text-slate-500 mt-0.5">
+              ดาวน์โหลดข้อมูลนักเรียนและรายการแข่งขันที่บันทึกไว้ในรูปแบบไฟล์ Sheet/CSV หรือสำรองเป็น JSON
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="btn-export-csv" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-[#0B1E36] hover:bg-[#162F52] text-white shadow-xs transition min-h-[40px]">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>ดาวน์โหลดไฟล์ Sheet (CSV UTF-8)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sports Quota Matrix -->
+      <div class="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm space-y-4">
+        <div class="p-4 bg-slate-50 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h3 class="font-bold text-[#0B1E36] text-base flex items-center gap-2">
+              <svg class="w-4 h-4 text-slate-700 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+              <span>Official Sport Quota Guidelines & Schedule Matrix</span>
+            </h3>
+            <p class="text-xs text-slate-500 mt-0.5">
+              Allocation of 86 student athletes + 13 parent participants per kingdom house • Complete event divisions
+            </p>
+          </div>
+          <span class="text-xs font-mono font-bold px-2.5 py-1 rounded bg-slate-100 text-[#0B1E36] border border-slate-200">
+            34 Sport Divisions
+          </span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs clean-table">
+            <thead>
+              <tr class="bg-slate-50 border-b border-slate-200 text-[11px] uppercase font-bold tracking-wider text-[#0B1E36]">
+                <th class="py-2.5 px-3 text-center">#</th>
+                <th class="py-2.5 px-3">Sport Discipline & Division</th>
+                <th class="py-2.5 px-3 text-center">Grade Level</th>
+                <th class="py-2.5 px-3 text-center">Gender</th>
+                <th class="py-2.5 px-3 text-center">Student Quota</th>
+                <th class="py-2.5 px-3 text-center">Parent Quota</th>
+                <th class="py-2.5 px-3 text-center">Assembly Call Time</th>
+                <th class="py-2.5 px-3 text-center">Match Time</th>
+              </tr>
+            </thead>
+            <tbody id="event-codes-table-body" class="divide-y divide-slate-100 font-mono">
+              <!-- Dynamically populated by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+
+
+    <!-- ========================================== -->
+    <!-- SECTION: SIBLING DIRECTORY (ระดับประถม G.1-G.6) -->
+    <!-- ========================================== -->
+    <section id="section-siblings" class="tab-content-section hidden space-y-6">
+      
+      <!-- Header Banner -->
+      <div class="border-b border-slate-200 pb-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="min-w-0">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold bg-amber-50 text-amber-800 border border-amber-200 mb-2">
+            <svg class="w-3.5 h-3.5 text-amber-600 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Explicit Sibling Cross-Reference (อิงตามหมายเหตุระบุคู่พี่น้องและระดับชั้นโดยเฉพาะ)</span>
+          </div>
+          <h2 class="title-section font-royal text-[#0B1E36] flex items-center gap-2">
+            <svg class="w-6 h-6 text-slate-700 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Primary Sibling Directory (ค้นหาพี่น้องนักเรียนประถม G.1–G.6)</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+            แสดงเฉพาะคู่พี่น้องที่ระบุชั้นเรียนและชื่อคู่ไว้ชัดเจนในฐานข้อมูลโรงเรียน (ไม่อิงการเดาจากนามสกุลหรือชื่อเล่นที่ซ้ำกัน) เพื่อความถูกต้องแม่นยำ 100%
+          </p>
+        </div>
+
+        <!-- Quick Summary Stats -->
+        <div class="flex items-center gap-2 flex-wrap shrink-0">
+          <div class="px-3.5 py-2 rounded-2xl bg-slate-50 border border-[rgba(0,0,0,0.08)] text-center min-w-[90px]">
+            <div class="text-[10px] uppercase font-bold text-slate-500">Verified Families</div>
+            <div id="sibling-family-count" class="text-base sm:text-lg font-black text-[#0B1E36] font-mono">26 Families</div>
+          </div>
+          <div class="px-3.5 py-2 rounded-2xl bg-slate-50 border border-[rgba(0,0,0,0.08)] text-center min-w-[90px]">
+            <div class="text-[10px] uppercase font-bold text-slate-500">Athletes Linked</div>
+            <div id="sibling-linked-count" class="text-base sm:text-lg font-black text-emerald-700 font-mono">54 Athletes</div>
+          </div>
+          <div class="px-3.5 py-2 rounded-2xl bg-slate-50 border border-[rgba(0,0,0,0.08)] text-center min-w-[90px]">
+            <div class="text-[10px] uppercase font-bold text-slate-500">Color Status</div>
+            <div id="sibling-match-status" class="text-base sm:text-lg font-black text-emerald-700 font-mono">100% Verified</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search & Filter Controls -->
+      <div class="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white p-4 sm:p-5 shadow-xs space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4">
+          <!-- Text Search Box -->
+          <div class="md:col-span-8 relative min-w-0">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5 flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-slate-500 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <span>Search Student / Nickname / Surname (ค้นหาชื่อ นามสกุล หรือชื่อเล่นพี่น้อง)</span>
+            </label>
+            <div class="relative">
+              <input 
+                id="sibling-search-input" 
+                type="text" 
+                placeholder="Type name, nickname, or surname (e.g. Brabus, Freen, Forth, Yuki, Ikkyu, Jantha)..." 
+                class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-xs sm:text-sm font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0B1E36] focus:border-transparent transition min-h-[44px]"
+              />
+              <span class="absolute left-3 top-3 text-slate-400">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Color House Filter -->
+          <div class="md:col-span-4 min-w-0">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+              Color House (คณะสี)
+            </label>
+            <select 
+              id="sibling-color-filter" 
+              class="w-full px-3 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0B1E36] transition cursor-pointer min-h-[44px]"
+            >
+              <option value="all">All 4 Kingdoms (ทุกสี)</option>
+              <option value="Purple">Purple (Ametrine Kingdom)</option>
+              <option value="Red">Red (Crimson Kingdom)</option>
+              <option value="Yellow">Yellow (Golden Realm)</option>
+              <option value="Green">Green (Jade Dynasty)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Quick Search Tags / Pills -->
+        <div class="flex items-center gap-2 flex-wrap pt-1 text-xs text-slate-500">
+          <span class="font-bold text-slate-600">Quick Tags:</span>
+          <button type="button" class="sibling-quick-tag px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition min-h-[36px] flex items-center" data-tag="Brabus">Brabus / Bring / Bright (G1 & G4)</button>
+          <button type="button" class="sibling-quick-tag px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition min-h-[36px] flex items-center" data-tag="Freen">Freen / Forth (G1 & G4)</button>
+          <button type="button" class="sibling-quick-tag px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition min-h-[36px] flex items-center" data-tag="Marty">Marty / Mata (G1 & G4)</button>
+          <button type="button" class="sibling-quick-tag px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition min-h-[36px] flex items-center" data-tag="Yuki">Yuki / Ikkyu (G1 & G4)</button>
+          <button type="button" class="sibling-quick-tag px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition min-h-[36px] flex items-center" data-tag="Kira">Kira / August (G1 & G3)</button>
+          <button type="button" class="sibling-quick-tag px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition min-h-[36px] flex items-center" data-tag="Peach">Peach / Prom (G1 & G4)</button>
+          <button type="button" class="sibling-quick-tag px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition min-h-[36px] flex items-center" data-tag="Whanwhan">Whanwhan / Wawa (G1 & G3)</button>
+          <button type="button" class="sibling-quick-tag px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition min-h-[36px] flex items-center" data-tag="Captain">Jasmine / Machine / Captain (G1, G2, G5)</button>
+          <button id="btn-reset-sibling-search" type="button" class="text-xs text-amber-700 hover:text-amber-800 font-bold ml-auto px-3 py-1.5 rounded-full hover:bg-amber-50 transition min-h-[36px] flex items-center">Reset Filters ↺</button>
+        </div>
+      </div>
+
+      <!-- Sibling Families Cards Container -->
+      <div id="sibling-cards-container" class="space-y-4">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="sibling-empty-state" class="hidden rounded-2xl border border-dashed border-slate-300 bg-white p-12 text-center space-y-3">
+        <div class="w-12 h-12 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <h3 class="text-base font-bold text-slate-700">No matching sibling families found</h3>
+        <p class="text-xs text-slate-500 max-w-md mx-auto">
+          Try adjusting your search query, selecting "All Sibling Groups", or clearing color filters.
+        </p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- MODAL: EDIT ATHLETE SPORTS ASSIGNMENT      -->
+  <!-- ========================================== -->
+  <div id="edit-student-modal" class="fixed inset-0 z-50 modal-backdrop hidden flex items-center justify-center p-4">
+    <div class="rounded-2xl bg-white border border-slate-300 w-full max-w-lg shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+      
+      <!-- Modal Header -->
+      <div class="p-5 border-b border-slate-200 bg-slate-50 flex items-start justify-between">
+        <div>
+          <span class="text-[11px] font-black uppercase tracking-wider text-[#0B1E36] font-mono">
+            Athlete Sport Registration
+          </span>
+          <h3 id="modal-student-name" class="text-lg font-black text-[#0B1E36] mt-0.5">
+            Student Name
+          </h3>
+          <p id="modal-student-info" class="text-xs text-slate-600 mt-0.5">
+            Class Info
+          </p>
+        </div>
+        <button id="btn-close-modal" onclick="closeStudentEditModal()" class="text-slate-400 hover:text-slate-800 p-2 rounded-lg hover:bg-slate-200 transition">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body (Sports Checklist) -->
+      <div class="p-5 overflow-y-auto space-y-3 flex-1 bg-white">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+          <span class="text-xs font-bold text-[#0B1E36]">Select participating sports:</span>
+          <span id="modal-event-count" class="px-2.5 py-1 text-xs font-bold rounded-lg bg-slate-100 text-slate-600 border border-slate-200">
+            0 Events
+          </span>
+        </div>
+
+        <div id="modal-sports-checklist" class="space-y-2">
+          <!-- Dynamically populated -->
+        </div>
+
+        <p class="text-[11px] text-slate-500 italic pt-2 flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-amber-500 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+          <span>School Directive: Target 1–2 events per student to maximize inclusion while preventing physical fatigue.</span>
+        </p>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 border-t border-slate-200 bg-slate-50 flex items-center justify-between gap-3 flex-wrap">
+        <a id="modal-gsheet-btn" href="https://docs.google.com/spreadsheets/d/14oRVn1mb3iiclWVlBbaR_SYpimgUbaXF/edit" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-full text-xs font-semibold bg-emerald-700 hover:bg-emerald-800 text-white shadow-xs transition min-h-[44px]">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Open Color Tab in Google Sheets
+        </a>
+        <div class="flex items-center gap-2">
+          <button id="btn-cancel-modal" onclick="closeStudentEditModal()" class="px-4 py-2.5 rounded-full text-xs font-semibold bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 transition min-h-[44px]">
+            Cancel
+          </button>
+          <button id="btn-save-modal" onclick="saveStudentEditModal()" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold bg-[#0B1E36] hover:bg-[#162F52] text-white shadow-xs transition min-h-[44px]">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <span>Save in Web</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: REFEREE PIN UNLOCK                  -->
+  <!-- ========================================== -->
+  <div id="referee-pin-modal" class="fixed inset-0 z-50 modal-backdrop hidden flex items-center justify-center p-4">
+    <div class="rounded-3xl bg-white border border-[rgba(0,0,0,0.12)] w-full max-w-sm shadow-2xl overflow-hidden p-6 text-center space-y-4">
+      <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center mx-auto shadow-inner">
+        <svg class="w-6 h-6 text-amber-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <div>
+        <h3 class="text-lg font-black text-[#0B1E36] font-royal">ปลดล็อกโหมดผู้ตัดสิน (Referee Mode)</h3>
+        <p class="text-xs text-slate-500 mt-1">กรุณากรอกรหัส PIN 4 หลักของคณะกรรมการตัดสิน เพื่อเปิดสิทธิ์การบันทึกผลและแก้ไขคะแนน</p>
+      </div>
+
+      <div class="space-y-2">
+        <input 
+          id="referee-pin-input" 
+          type="password" 
+          inputmode="numeric" 
+          maxlength="6" 
+          placeholder="••••" 
+          class="w-full text-center text-2xl tracking-[0.3em] font-mono py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B1E36]"
+        />
+        <div id="referee-pin-error" class="hidden text-xs font-bold text-rose-600 flex items-center justify-center gap-1">
+          <svg class="w-3.5 h-3.5 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+          <span>รหัส PIN ไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 pt-2">
+        <button id="btn-cancel-pin-modal" class="w-1/2 py-2.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition min-h-[44px]">
+          ยกเลิก
+        </button>
+        <button id="btn-submit-pin" class="w-1/2 py-2.5 rounded-full text-xs font-bold bg-[#0B1E36] hover:bg-[#162F52] text-white transition shadow-xs min-h-[44px]">
+          ยืนยันรหัส
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: RECORD EVENT RESULT (GOLD/SILVER/BRONZE) -->
+  <!-- ========================================== -->
+  <div id="record-result-modal" class="fixed inset-0 z-50 modal-backdrop hidden flex items-center justify-center p-4">
+    <div class="rounded-2xl bg-white border border-slate-300 w-full max-w-md shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+      <!-- Header -->
+      <div class="p-5 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
+        <div>
+          <h3 class="text-base font-black text-[#0B1E36] font-royal flex items-center gap-2">
+            <svg class="w-4 h-4 text-amber-600 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <span>บันทึกผลผู้ชนะกีฬา</span>
+          </h3>
+          <p id="modal-result-event-name" class="text-xs text-slate-500 font-bold mt-0.5">30m Sprint - G.1 Boys Heat 1</p>
+        </div>
+        <button id="btn-close-result-modal" class="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-200 transition">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Body Form -->
+      <div class="p-5 space-y-4 overflow-y-auto">
+        <input type="hidden" id="modal-result-event-id" value="" />
+
+        <!-- Gold (1st Place) -->
+        <div>
+          <label class="block text-xs font-black text-amber-600 mb-1 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-amber-500 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/><path d="m11 6 1 4 1-4"/></svg>
+            <span>เหรียญทอง (อันดับ 1 - 5 คะแนน):</span>
+          </label>
+          <select id="select-winner-gold" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-sm font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-500">
+            <option value="">-- ยังไม่มีผล --</option>
+            <option value="Purple">สีม่วง (Amethyst Kingdom)</option>
+            <option value="Red">สีแดง (Crimson Empire)</option>
+            <option value="Yellow">สีเหลือง (Golden Realm)</option>
+            <option value="Green">สีเขียว (Jade Dynasty)</option>
+          </select>
+        </div>
+
+        <!-- Silver (2nd Place) -->
+        <div>
+          <label class="block text-xs font-black text-slate-600 mb-1 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-slate-400 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <span>เหรียญเงิน (อันดับ 2 - 3 คะแนน):</span>
+          </label>
+          <select id="select-winner-silver" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-sm font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-500">
+            <option value="">-- ยังไม่มีผล --</option>
+            <option value="Purple">สีม่วง (Amethyst Kingdom)</option>
+            <option value="Red">สีแดง (Crimson Empire)</option>
+            <option value="Yellow">สีเหลือง (Golden Realm)</option>
+            <option value="Green">สีเขียว (Jade Dynasty)</option>
+          </select>
+        </div>
+
+        <!-- Bronze (3rd Place) -->
+        <div>
+          <label class="block text-xs font-black text-amber-800 mb-1 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-amber-800 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <span>เหรียญทองแดง (อันดับ 3 - 1 คะแนน):</span>
+          </label>
+          <select id="select-winner-bronze" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-sm font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-800">
+            <option value="">-- ยังไม่มีผล --</option>
+            <option value="Purple">สีม่วง (Amethyst Kingdom)</option>
+            <option value="Red">สีแดง (Crimson Empire)</option>
+            <option value="Yellow">สีเหลือง (Golden Realm)</option>
+            <option value="Green">สีเขียว (Jade Dynasty)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="p-4 border-t border-slate-200 bg-slate-50 flex items-center justify-end gap-2">
+        <button id="btn-cancel-result-modal" class="px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition">
+          Cancel
+        </button>
+        <button id="btn-save-result-modal" class="inline-flex items-center gap-1.5 px-5 py-2 rounded-xl text-xs font-bold bg-[#0B1E36] hover:bg-[#162F52] text-white transition shadow-sm">
+          <svg class="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          <span>บันทึกผลคะแนน</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dedicated Print Render Area (Injected only during print) -->
+  <div id="printable-render-area" class="print-only hidden"></div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 bg-white py-8 mt-12 text-center text-xs text-slate-500 space-y-2 no-print">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="assets/images/tws-logo.png" alt="TWS Logo" class="w-7 h-7 object-contain" />
+        <span class="text-[#0B1E36] font-black font-royal text-sm">TECHAWIT SCHOOL (โรงเรียนเตชะวิทย์)</span>
+        <span>• Primary Sports Day 2026: The Kingdom Games</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-3 text-slate-500 font-medium">
+        <span>Event Date: Jan 8, 2027</span>
+        <span>•</span>
+        <span>232 Athletes</span>
+        <span>•</span>
+        <span>4 Kingdoms</span>
+        <span>•</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-[#0B1E36]">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>สถิติการเข้าชม: <strong id="footer-tracker-views" class="font-mono text-slate-800">--</strong> ครั้ง (<strong id="footer-tracker-online" class="font-mono text-emerald-700">1</strong> กำลังออนไลน์)</span>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts (Versioned to bust browser cache) -->
+  <script src="assets/js/icons.js?v=20261105_1420" charset="UTF-8"></script>
+  <script src="assets/js/students-data.js?v=20261105_1420" charset="UTF-8"></script>
+  <script src="assets/js/duties-data.js?v=20261105_1420" charset="UTF-8"></script>
+  <script src="assets/js/schedule-data.js?v=20261105_1420" charset="UTF-8"></script>
+  <script src="assets/js/links-data.js?v=20261105_1420" charset="UTF-8"></script>
+  <script src="assets/js/app.js?v=20261105_1420" charset="UTF-8"></script>
+</body>
+</html>

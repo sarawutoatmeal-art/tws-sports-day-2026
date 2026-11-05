@@ -1,0 +1,162 @@
+// Techawit School Sports Day 2026 - Official Document Links & Sport Registration Hub
+const OFFICIAL_LINKS = {
+  googleDoc: {
+    title: "Official Handbook & Event Master Guide",
+    url: "https://docs.google.com/document/d/1YtgJjH1ALr8UXKCoVgftZMUUhPJmnTZOV7QX4cBDgGg/edit?tab=t.0",
+    description: "Contains official schedule, referee directives, staff duties, family game guidelines, and safety protocol."
+  },
+  sheetSports: {
+    title: "Master Sports Entry & Quota Audit Sheet (เนเธเธชเนเธเธฃเธฒเธขเธเธทเนเธญ)",
+    url: "https://docs.google.com/spreadsheets/d/14oRVn1mb3iiclWVlBbaR_SYpimgUbaXF/edit?gid=181845680#gid=181845680",
+    description: "Official team submission sheets per color (Purple, Red, Yellow, Green), team quota audit (เธ•เธฃเธงเธเธ—เธตเธก), student participation audit (เธ•เธฃเธงเธเน€เธ”เนเธ), and printable game sheets 1โ€“8."
+  },
+  sheetRoster: {
+    title: "Master Schedule, Duties & Class Rosters",
+    url: "https://docs.google.com/spreadsheets/d/1s1m8HwWhE6AO8pnEaz55VEN7gPWjN5FD4gRvFnVetPs/edit?gid=0#gid=0",
+    description: "Complete 41 numbered event schedule, staff duties breakdown, sibling connections, and Grade 1โ€“6 master rosters."
+  }
+};
+
+// 34 Master Event Directives (E01 to E34) from official School Entry Sheet
+const MASTER_EVENT_CODES = [
+  { code: "E01", sport: "30m Sprint", division: "G1 Boys Heat 1", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 1, maxGrade: 1, gender: "Boy", parents: 0 },
+  { code: "E02", sport: "30m Sprint", division: "G1 Boys Heat 2", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 1, maxGrade: 1, gender: "Boy", parents: 0 },
+  { code: "E03", sport: "30m Sprint", division: "G1 Girls Heat 1", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 1, maxGrade: 1, gender: "Girl", parents: 0 },
+  { code: "E04", sport: "30m Sprint", division: "G1 Girls Heat 2", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 1, maxGrade: 1, gender: "Girl", parents: 0 },
+  { code: "E05", sport: "30m Sprint", division: "G2 Boys Heat 1", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 2, maxGrade: 2, gender: "Boy", parents: 0 },
+  { code: "E06", sport: "30m Sprint", division: "G2 Boys Heat 2", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 2, maxGrade: 2, gender: "Boy", parents: 0 },
+  { code: "E07", sport: "30m Sprint", division: "G2 Girls Heat 1", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 2, maxGrade: 2, gender: "Girl", parents: 0 },
+  { code: "E08", sport: "30m Sprint", division: "G2 Girls Heat 2", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 2, maxGrade: 2, gender: "Girl", parents: 0 },
+  { code: "E09", sport: "30m Sprint", division: "G3 Boys Heat 1", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 3, maxGrade: 3, gender: "Boy", parents: 0 },
+  { code: "E10", sport: "30m Sprint", division: "G3 Boys Heat 2", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 3, maxGrade: 3, gender: "Boy", parents: 0 },
+  { code: "E11", sport: "30m Sprint", division: "G3 Girls Heat 1", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 3, maxGrade: 3, gender: "Girl", parents: 0 },
+  { code: "E12", sport: "30m Sprint", division: "G3 Girls Heat 2", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 3, maxGrade: 3, gender: "Girl", parents: 0 },
+  { code: "E13", sport: "30m Sprint", division: "G4 Boys Heat 1", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 4, maxGrade: 4, gender: "Boy", parents: 0 },
+  { code: "E14", sport: "30m Sprint", division: "G4 Boys Heat 2", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 4, maxGrade: 4, gender: "Boy", parents: 0 },
+  { code: "E15", sport: "30m Sprint", division: "G4 Girls Heat 1", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 4, maxGrade: 4, gender: "Girl", parents: 0 },
+  { code: "E16", sport: "30m Sprint", division: "G4 Girls Heat 2", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 4, maxGrade: 4, gender: "Girl", parents: 0 },
+  { code: "E17", sport: "30m Sprint", division: "G5 Boys Heat 1", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 5, maxGrade: 5, gender: "Boy", parents: 0 },
+  { code: "E18", sport: "30m Sprint", division: "G5 Boys Heat 2", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 5, maxGrade: 5, gender: "Boy", parents: 0 },
+  { code: "E19", sport: "30m Sprint", division: "G5 Girls Heat 1", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 5, maxGrade: 5, gender: "Girl", parents: 0 },
+  { code: "E20", sport: "30m Sprint", division: "G5 Girls Heat 2", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 5, maxGrade: 5, gender: "Girl", parents: 0 },
+  { code: "E21", sport: "30m Sprint", division: "G6 Boys Heat 1", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 6, maxGrade: 6, gender: "Boy", parents: 0 },
+  { code: "E22", sport: "30m Sprint", division: "G6 Girls Heat 1", quota: 1, callTime: "08:50", startTime: "09:00", endTime: "09:45", minGrade: 6, maxGrade: 6, gender: "Girl", parents: 0 },
+  { code: "E23", sport: "6x30m Shuttle Relay", division: "G1โ€“G3 Boys (2/grade)", quota: 6, callTime: "09:35", startTime: "09:45", endTime: "10:00", minGrade: 1, maxGrade: 3, gender: "Boy", parents: 0 },
+  { code: "E24", sport: "6x30m Shuttle Relay", division: "G1โ€“G3 Girls (2/grade)", quota: 6, callTime: "09:35", startTime: "09:45", endTime: "10:00", minGrade: 1, maxGrade: 3, gender: "Girl", parents: 0 },
+  { code: "E25", sport: "6x30m Shuttle Relay", division: "G4โ€“G6 Boys (2/grade)", quota: 6, callTime: "09:35", startTime: "09:45", endTime: "10:00", minGrade: 4, maxGrade: 6, gender: "Boy", parents: 0 },
+  { code: "E26", sport: "6x30m Shuttle Relay", division: "G4โ€“G6 Girls (2/grade)", quota: 6, callTime: "09:35", startTime: "09:45", endTime: "10:00", minGrade: 4, maxGrade: 6, gender: "Girl", parents: 0 },
+  { code: "E27", sport: "Football 5v5", division: "G3โ€“G6 Squad", quota: 5, callTime: "09:50", startTime: "10:00", endTime: "10:15", minGrade: 3, maxGrade: 6, gender: "Any", parents: 0 },
+  { code: "E28", sport: "Primary Chairball", division: "G1โ€“G2 Squad", quota: 5, callTime: "10:05", startTime: "10:15", endTime: "10:25", minGrade: 1, maxGrade: 2, gender: "Any", parents: 0 },
+  { code: "E29", sport: "Basketball 3x3", division: "G3โ€“G4 Junior Squad", quota: 3, callTime: "10:15", startTime: "10:25", endTime: "10:35", minGrade: 3, maxGrade: 4, gender: "Any", parents: 0 },
+  { code: "E30", sport: "Basketball 3x3", division: "G5โ€“G6 Senior Squad", quota: 3, callTime: "10:15", startTime: "10:25", endTime: "10:35", minGrade: 5, maxGrade: 6, gender: "Any", parents: 0 },
+  { code: "E31", sport: "Fastball Throwing", division: "G1โ€“G6 (2 per grade)", quota: 12, callTime: "10:25", startTime: "10:35", endTime: "10:45", minGrade: 1, maxGrade: 6, gender: "Any", parents: 1 },
+  { code: "E32", sport: "Hula Hoop Relay", division: "G1โ€“G6 (1 per grade)", quota: 6, callTime: "10:35", startTime: "10:45", endTime: "10:55", minGrade: 1, maxGrade: 6, gender: "Any", parents: 6 },
+  { code: "E33", sport: "3-Legged Family Relay", division: "G1โ€“G3 Junior Pairs", quota: 3, callTime: "10:40", startTime: "10:55", endTime: "11:05", minGrade: 1, maxGrade: 3, gender: "Any", parents: 3 },
+  { code: "E34", sport: "3-Legged Family Relay", division: "G4โ€“G6 Senior Pairs", quota: 3, callTime: "10:40", startTime: "11:05", endTime: "11:15", minGrade: 4, maxGrade: 6, gender: "Any", parents: 3 }
+];
+
+const SPORT_REGISTRATION_CATEGORIES = [
+  {
+    id: "sprint_30m",
+    name: "30-Meter Sprint (เธงเธดเนเธ 30 เน€เธกเธ•เธฃ)",
+    grades: "G1 โ€“ G6",
+    gender: "Boys & Girls (Heats E01โ€“E22)",
+    quotaPerColor: "1 runner per heat (22 heats total = 22 slots)",
+    icon: "zap",
+    type: "Individual Track",
+    description: "Straight line 30m track sprint. Every heat awards 1st Gold, 2nd Silver, 3rd Bronze.",
+    rules: "1 runner per color per heat. False start warning on 1st offense, disqualified on 2nd."
+  },
+  {
+    id: "relay_shuttle",
+    name: "6 ร— 30m Shuttle Relay (เธงเธดเนเธเธเธฅเธฑเธ”)",
+    grades: "G1โ€“G3 (Junior) & G4โ€“G6 (Senior)",
+    gender: "Boys Team & Girls Team (E23โ€“E26)",
+    quotaPerColor: "6 runners per team (2 per grade = 24 slots total)",
+    icon: "repeat",
+    type: "Team Relay",
+    description: "Baton exchange shuttle sprint over 30m distances (total team distance: 180m).",
+    rules: "Each kingdom enters 4 relay teams: G1-G3 Boys, G1-G3 Girls, G4-G6 Boys, G4-G6 Girls."
+  },
+  {
+    id: "football_5v5",
+    name: "Football 5v5 Championship (เธเธธเธ•เธเธญเธฅ)",
+    grades: "G3 โ€“ G6",
+    gender: "Open / Co-ed (E27)",
+    quotaPerColor: "5 players on court (including 1 GK) + subs",
+    icon: "activity",
+    type: "Team Sport",
+    description: "6 minutes continuous match. Preliminary rounds completed before Jan 8. Finals on event day.",
+    rules: "Separate football and basketball players where possible to avoid player fatigue."
+  },
+  {
+    id: "chairball",
+    name: "Primary Chairball (เนเธเธฃเนเธเธญเธฅ)",
+    grades: "G1 โ€“ G2",
+    gender: "Open / Co-ed (E28)",
+    quotaPerColor: "5 players on court (including 1 basket holder)",
+    icon: "target",
+    type: "Team Sport",
+    description: "Dual courts simultaneous play for 3rd place and Championship titles. 6 minutes continuous.",
+    rules: "Safe soft-touch ball. Basket holder stands on designated base without chairs for young athletes' safety."
+  },
+  {
+    id: "basketball_3x3",
+    name: "Basketball 3ร—3 (เธเธฒเธชเน€เธเธ•เธเธญเธฅ)",
+    grades: "G3 โ€“ G6 (Split Squad)",
+    gender: "Open / Co-ed (E29 & E30)",
+    quotaPerColor: "6 players (3 Junior G3-G4 + 3 Senior G5-G6)",
+    icon: "circle",
+    type: "Team Sport",
+    description: "Continuous running score: Junior squad plays first 3 mins, Senior squad plays remaining 3 mins.",
+    rules: "All 6 squad members receive medals if team places in top 3."
+  },
+  {
+    id: "family_fastball",
+    name: "Fastball Throwing (Family)",
+    grades: "G1 โ€“ G6",
+    gender: "Any + 1 Parent (E31)",
+    quotaPerColor: "12 students (2 per grade) + 1 Parent catcher",
+    icon: "layers",
+    type: "Family Game",
+    description: "90 seconds rapid target throwing. Students throw soft balls into giant basket held by parent.",
+    rules: "Throws scored from grade-marked distance lines."
+  },
+  {
+    id: "family_hula_hoop",
+    name: "Hula Hoop Relay (Family)",
+    grades: "G1 โ€“ G6",
+    gender: "Any + 6 Parents (E32)",
+    quotaPerColor: "6 students (1 per grade) + 6 Parents",
+    icon: "compass",
+    type: "Family Game",
+    description: "Hand-in-hand human chain passing hoop from start to end without breaking grip in 90 seconds.",
+    rules: "Hands must stay clasped at all times."
+  },
+  {
+    id: "family_3legged",
+    name: "3-Legged Family Relay (เน€เธ”เธดเธ 3 เธเธฒ)",
+    grades: "Junior (G1โ€“G3) & Senior (G4โ€“G6)",
+    gender: "Parent + Student Pairs (E33 & E34)",
+    quotaPerColor: "6 pairs (3 Junior pairs + 3 Senior pairs)",
+    icon: "users",
+    type: "Family Game",
+    description: "Baton shuttle relay with soft velcro ankle fasteners. Fast walking only for safety.",
+    rules: "Pair must come to a stop if balance is disrupted before resetting."
+  },
+  {
+    id: "special_exhibitions",
+    name: "Special Exhibition Clashes",
+    grades: "Student All-Stars & Parents / Teachers",
+    gender: "Kids vs Parents & Parents vs Teachers",
+    quotaPerColor: "Kids: 7-8 students; Parents: 5-6 parents; Teachers: 12 teachers",
+    icon: "sparkles",
+    type: "Exhibition",
+    description: "Moms vs Kids Chairball, Dads vs Kids Giant Football, Giant Volleyball (Parents vs Teachers).",
+    rules: "Focus strictly on joy, sportsmanship, and safe fun!"
+  }
+];
+
+if (typeof module !== 'undefined') {
+  module.exports = { OFFICIAL_LINKS, MASTER_EVENT_CODES, SPORT_REGISTRATION_CATEGORIES };
+}

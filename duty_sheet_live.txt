@@ -1,0 +1,61 @@
+﻿Row 1 : A1: Responsibilities
+Row 2 : A2: System.Xml.XmlElement | B2:  | C2:  | D2:  | E2:  | F2: 
+Row 3 : A3: เธเธดเธเธตเธเธฃเธ เธฒเธขเธเธญเธ | B3:  | C3:  | D3:  | E3:  | F3:  | I3:  | J3:  | K3:  | L3: 
+Row 4 : A4:  | B4:  | C4:  | D4:  | E4:  | F4:  | I4:  | J4:  | K4:  | L4: 
+Row 5 : A5: System.Xml.XmlElement | I5:  | J5:  | K5:  | L5: 
+Row 6 : A6: Head of Award Management = T.June 
+ Award Management team and Award Announcement = T.Fon 
+ Award Management team =Kindergarten Team | B6:  | C6:  | D6:  | E6:  | F6:  | I6:  | J6:  | K6:  | L6: 
+Row 7 : A7:  | B7:  | C7:  | D7:  | E7:  | F7:  | I7:  | J7:  | K7:  | L7: 
+Row 8 : A8: System.Xml.XmlElement | I8:  | J8:  | K8:  | L8: 
+Row 9 : A9: เธฅเธเธ—เธฐเน€เธเธตเธขเธเธเธนเนเธเธเธเธฃเธญเธ 8:00-8:20 | B9:  | C9: เธฅเธเธ—เธฐเน€เธเธตเธขเธเธเธฑเธเธเธตเธฌเธฒ 8:40-11:40 | D9:  | E9:  | F9:  | I9:  | J9:  | K9:  | L9: 
+Row 10 : A10: T.Dada
+T.Shake | B10:  | C10: T. Hannah 
+T.Nuch | D10:  | E10:  | F10:  | I10:  | J10:  | K10:  | L10: 
+Row 11 : A11:  | B11:  | C11:  | D11:  | E11:  | F11:  | I11:  | J11:  | K11:  | L11: 
+Row 12 : A12: System.Xml.XmlElement | I12:  | J12:  | K12:  | L12: 
+Row 13 : A13: เธชเธตเธกเนเธงเธ ( Purple ) | B13: System.Xml.XmlElement | C13: System.Xml.XmlElement | D13: System.Xml.XmlElement | E13:  | F13:  | I13:  | J13:  | K13:  | L13: 
+Row 14 : A14: T.Iris (Head)
+T.Lorie (Asst)
+T.Donut
+T.Joey
+T.Sai | B14: T.Jib (Head)
+T.Marky (Asst)
+T.Tai
+T.Erik
+T.Kaew | C14: T.Tuk (Head)
+T.Mike (Asst)
+T.Gilbert
+T.Bonnie
+T.BELL | D14: System.Xml.XmlElement | E14:  | F14:  | I14:  | J14:  | K14:  | L14: 
+Row 15 : A15:  | C15:  | D15:  | E15:  | F15:  | I15:  | J15:  | K15:  | L15: 
+Row 16 : A16:  | C16:  | D16:  | E16:  | F16:  | I16:  | J16:  | K16:  | L16: 
+Row 17 : A17:  | C17:  | D17:  | E17:  | F17:  | I17:  | J17:  | K17:  | L17: 
+Row 18 : A18: 5.  Sports Referee & Team Sports Coordinator (5 Persons) เธเนเธฒเธขเธ•เธฑเธ”เธชเธดเธเธเธตเธฌเธฒ เนเธฅเธฐเธ—เธตเธกเธเธฃเธฐเธชเธฒเธเธเธฒเธ | I18:  | J18:  | K18:  | L18: 
+Row 19 : A19: Sports Referee | B19:  | C19:  | I19:  | J19:  | K19:  | L19: 
+Row 20 : A20: System.Xml.XmlElement | B20:  | I20:  | J20:  | K20:  | L20: 
+Row 21 : A21:  | B21:  | I21:  | J21:  | K21:  | L21: 
+Row 22 : A22:  | B22:  | I22:  | J22:  | K22:  | L22: 
+Row 23 : A23:  | B23:  | I23:  | J23:  | K23:  | L23: 
+Row 24 : A24:  | B24:  | I24:  | J24:  | K24:  | L24: 
+Row 25 : A25: 6.  First Aid Team เธเธเธกเธเธขเธฒเธเธฒเธฅ | B25:  | C25:  | D25:  | E25:  | F25: 
+Row 26 : A26: เธ เธฒเธขเธเธญเธ เธซเธฃเธทเธญ T.Kaew | B26:  | C26:  | D26:  | E26:  | F26: 
+Row 27 : A27: 7. Venue & Refreshment Team  เธเธเธดเธเธก | B27:  | C27:  | D27:  | E27:  | F27: 
+Row 28 : A28: T.Bee
+T.Dada 
+T.Ester 
+T.Shake | B28:  | C28:  | D28:  | E28:  | F28: 
+Row 29 : A29: 8.  Sound System & Music Team เธ”เนเธฒเธเน€เธเธฃเธทเนเธญเธเน€เธชเธตเธขเธ เธ”เธนเนเธฅเน€เธเธฃเธทเนเธญเธเน€เธชเธตเธขเธ เน€เธเธดเธ”เน€เธเธฅเธเธ•เธฅเธญเธ”เธเธฒเธฃเธเธฑเธ”เธเธดเธเธเธฃเธฃเธก | B29:  | C29:  | D29:  | E29:  | F29: 
+Row 30 : A30: T.Noth | B30:  | C30:  | D30:  | E30:  | F30: 
+Row 31 : A31: 9.  Photography, Video & Graphics Team | B31:  | C31:  | D31:  | E31:  | F31: 
+Row 32 : A32: T.SHO 
+T.MARK 
+T.CHOMPU | B32:  | C32:  | D32:  | E32:  | F32: 
+Row 33 : A33: 10. Traffic & General Asisstance Team เธ—เธตเธกเธเนเธงเธขเน€เธซเธฅเธทเธญเธ”เนเธฒเธเธเธฒเธฃเธเธฃเธฒเธเธฃเนเธฅเธฐเธ—เธฑเนเธงเนเธ | B33:  | C33:  | D33:  | E33:  | F33: 
+Row 34 : A34: P.Sak
+P.Nui 
+Louis | B34:  | C34:  | D34:  | E34:  | F34: 
+Row 35 : A35: System.Xml.XmlElement | B35:  | C35:  | D35:  | E35:  | F35: 
+Row 36 : A36: -  School Administration | B36:  | C36:  | D36:  | E36:  | F36: 
+Row 37 : A37: System.Xml.XmlElement | B37:  | C37:  | D37: 
+Row 38 : A38: System.Xml.XmlElement | B38:  | C38:  | D38: 
