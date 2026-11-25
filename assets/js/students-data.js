@@ -1,4 +1,4 @@
-﻿// Techawit School Sports Day 2026 - Master Student Dataset (232 Students - All 0 Events)
+﻿// Techawit School Sports Day 2026 - Master Student Dataset (230 Students - All 0 Events)
 const INITIAL_STUDENTS = [
     {
         "id":  1,
@@ -2606,36 +2606,6 @@ const INITIAL_STUDENTS = [
         "color":  "Purple",
         "kingdom":  "Amethyst Kingdom",
         "sibling":  "Lita K.3 Whale",
-        "events":  [
-
-                   ]
-    },
-    {
-        "id":  175,
-        "class":  "G4 Panther",
-        "grade":  4,
-        "no":  18,
-        "fullName":  "MASTER SILA SIRINUNTA",
-        "nickname":  "Sila",
-        "gender":  "Boy",
-        "color":  "Green",
-        "kingdom":  "Jade Dynasty",
-        "sibling":  "",
-        "events":  [
-
-                   ]
-    },
-    {
-        "id":  176,
-        "class":  "G4 Panther",
-        "grade":  4,
-        "no":  19,
-        "fullName":  "MASTER VAYU SIRINUNTA",
-        "nickname":  "Vayu",
-        "gender":  "Boy",
-        "color":  "Green",
-        "kingdom":  "Jade Dynasty",
-        "sibling":  "",
         "events":  [
 
                    ]

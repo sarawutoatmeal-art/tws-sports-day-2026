@@ -24,7 +24,7 @@ const TEACHER_DUTIES = [
       { name: "T.Fon", role: "Award Management Team & Award Announcement" },
       { name: "Kindergarten Team", role: "Award Management Team" }
     ],
-    notes: "Medals (186 medals total) must be staged accurately before each division final to ensure prompt podium ceremonies."
+    notes: "Medals (189 medals total) must be staged accurately before each division final to ensure prompt podium ceremonies."
   },
   {
     category: "3. Registration Team",

@@ -385,16 +385,27 @@ function setupRosterFilters() {
     });
   }
 
-  // Reset Button
+  // Reset Button (Secured with Referee Master PIN Authorization)
   const resetBtn = document.getElementById('btn-reset-roster');
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
-      if (confirm('คุณต้องการรีเซตรายการแข่งขันของนักเรียนทุกคนกลับเป็น 0 รายการ (ยังไม่มีใครลง) ใช่หรือไม่?')) {
-        localStorage.removeItem(STORAGE_KEY);
-        APP_STATE.students = JSON.parse(JSON.stringify(INITIAL_STUDENTS));
-        saveStudentsToStorage();
-        renderRosterView();
-        alert('รีเซตข้อมูลรายการแข่งขันทั้งหมดเป็น 0 รายการเรียบร้อยแล้ว');
+      if (!APP_STATE.isRefereeAuthorized) {
+        alert('🔒 การรีเซตรายชื่อต้องใช้สิทธิ์ครูกรรมการตัดสินเท่านั้น! กรุณาปลดล็อกโหมดผู้ตัดสินด้วยรหัส PIN ก่อนดำเนินการ');
+        const pinModal = document.getElementById('referee-pin-modal');
+        if (pinModal) pinModal.classList.remove('hidden');
+        return;
+      }
+      if (confirm('⚠️ คำเตือนสำคัญ: คุณต้องการรีเซตรายการแข่งขันของนักเรียนทุกคนกลับเป็น 0 รายการ (ล้างข้อมูลที่ลงทะเบียนทั้งหมด) ใช่หรือไม่?')) {
+        const doubleCheck = prompt('กรุณาพิมพ์คำว่า "RESET" ตัวพิมพ์ใหญ่ เพื่อยืนยันการล้างข้อมูลรายการแข่งขันทั้งหมด:');
+        if (doubleCheck === 'RESET') {
+          localStorage.removeItem(STORAGE_KEY);
+          APP_STATE.students = JSON.parse(JSON.stringify(INITIAL_STUDENTS));
+          saveStudentsToStorage();
+          renderRosterView();
+          alert('รีเซตข้อมูลรายการแข่งขันทั้งหมดเป็น 0 รายการเรียบร้อยแล้ว');
+        } else {
+          alert('ยกเลิกการรีเซต ข้อมูลรายการแข่งขันทั้งหมดยังคงปลอดภัย');
+        }
       }
     });
   }
@@ -826,11 +837,11 @@ function openEditModal(studentId) {
     }] : []),
     { name: '6x30m Relay (วิ่งผลัด 6x30 ม.)', desc: 'Junior G1–G3 or Senior G4–G6 (6 runners per team, Boys/Girls)', eligible: true },
     { name: 'Football 5v5 (ฟุตบอล)', desc: 'Grade 3–6 gymnasium court (5 players on pitch incl. Goalkeeper)', eligible: grade >= 3 },
-    { name: 'Primary Chairball (แชร์บอล)', desc: 'Grade 1–2 Courts A & B (5 players on court incl. basket catcher)', eligible: grade <= 2 },
+    { name: 'Primary Chairball (แชร์บอล)', desc: 'Grade 1–2 Courts A & B (6 players per team incl. 1 basket catcher)', eligible: grade <= 2 },
     { name: 'Basketball 3x3 (บาสเกตบอล)', desc: 'Grade 3–6 (Junior squad G3–4 & Senior squad G5–6)', eligible: grade >= 3 },
-    { name: 'Fastball Throwing (Family Game)', desc: 'Grade 1–6 (2 students per grade + 1 parent basket catcher)', eligible: true },
-    { name: 'Hula Hoop Relay (Family Game)', desc: 'Grade 1–6 (1 student per grade + 6 parents hand-in-hand)', eligible: true },
-    { name: '3-Legged Race (Family Relay)', desc: 'Parent + student pair (Junior G1–3 or Senior G4–6)', eligible: true },
+    { name: 'Fastball Throwing (Family Game)', desc: 'Grade 1–6 (Boy 1, Girl 1 per grade = 12 students + 1 parent giant basket holder)', eligible: true },
+    { name: 'Hula Hoop Relay (Family Game)', desc: 'Grade 1–6 (1 student per grade alternating with 6 parents = 12 total, hand-in-hand)', eligible: true },
+    { name: '3-Legged Race (Family Relay)', desc: 'Parent + student pair (Junior G1–3: 3 pairs or Senior G4–6: 3 pairs, walking only)', eligible: true },
     { name: 'Moms vs Kids Chairball (Exhibition)', desc: 'Student All-Stars vs Techawit Mothers', eligible: true },
     { name: 'Dads vs Kids Giant Soccer (Exhibition)', desc: 'Student All-Stars vs Techawit Fathers (giant soft soccer ball)', eligible: true }
   ];
@@ -2486,7 +2497,7 @@ function renderKingdomShowcase() {
         { post: 'ตามนักกีฬา & ส่งตัว Call Room', staff: 'เช็กเวลาและพานักกีฬาไปส่งที่จุดลงทะเบียน' },
         { post: 'จุดเส้นชัย & พาไปรับรางวัล', staff: 'ประจำเส้นชัย รับเด็กแข่งเสร็จและพาไปจุดรับเหรียญ' }
       ],
-      classes: '58 Jade Athletes (G.1 - G.6)'
+      classes: '56 Jade Athletes (G.1 - G.6)'
     }
   ];
 
@@ -2508,7 +2519,7 @@ function renderKingdomShowcase() {
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
         <div class="absolute bottom-3 left-3.5 right-3.5">
           <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border ${k.headerBadge} backdrop-blur-md mb-1">
-            ${k.color} Team • 58 Athletes
+            ${k.color} Team • ${k.classes}
           </span>
           <h3 class="text-xl sm:text-2xl font-black font-royal text-white tracking-wide drop-shadow-md truncate-1">
             ${k.name}

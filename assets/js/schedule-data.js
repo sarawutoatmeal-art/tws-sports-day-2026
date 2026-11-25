@@ -77,9 +77,9 @@ const EVENT_SCHEDULE = [
     thaiTitle: "แชร์บอล G1–G2 ชิงอันดับ 1 และ 3 พร้อมกัน",
     category: "court",
     location: "Courts A & B",
-    description: "5 players per team (including 1 chair basket holder). Both 3rd place and Championship matches played simultaneously across two courts. 6 minutes continuous play.",
+    description: "6 players per team (5 on court + 1 basket holder). Both 3rd place and Championship matches played simultaneously across two courts. 6 minutes continuous play.",
     rules: "No dribbling or walking with the ball. Defenders must stay at least 1 meter away from chair holder. Safe soft-touch ball used.",
-    medals: "5 Gold, 5 Silver, 5 Bronze (15 Medals)",
+    medals: "6 Gold, 6 Silver, 6 Bronze (18 Medals)",
     highlight: false
   },
   {
@@ -203,15 +203,15 @@ const MEDAL_STATS = [
   { sport: "30-Meter Sprint", gold: 22, silver: 22, bronze: 22, total: 66, note: "G1–G5 (4 heats/grade) + G6 (2 heats) = 22 heats" },
   { sport: "6 × 30m Shuttle Relay", gold: 24, silver: 24, bronze: 24, total: 72, note: "4 divisions × 6 runners per team" },
   { sport: "Football 5v5 (G3–G6)", gold: 5, silver: 5, bronze: 5, total: 15, note: "Top 3 teams (5 players each)" },
-  { sport: "Chairball (G1–G2)", gold: 5, silver: 5, bronze: 5, total: 15, note: "Top 3 teams (5 players each)" },
+  { sport: "Chairball (G1–G2)", gold: 6, silver: 6, bronze: 6, total: 18, note: "Top 3 teams (6 squad members each including basket holder)" },
   { sport: "Basketball 3×3 (G3–G6)", gold: 6, silver: 6, bronze: 6, total: 18, note: "Top 3 teams (6 squad members each)" }
 ];
 
 const TOTAL_MEDALS = {
-  gold: 62,
-  silver: 62,
-  bronze: 62,
-  overall: 186
+  gold: 63,
+  silver: 63,
+  bronze: 63,
+  overall: 189
 };
 
 if (typeof window !== 'undefined') {
