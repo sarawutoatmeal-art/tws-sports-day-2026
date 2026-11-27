@@ -47,23 +47,31 @@ document.addEventListener('DOMContentLoaded', () => {
   initVisitorAnalytics();
 });
 
-// Load Student Data (from localStorage or clean INITIAL_STUDENTS) + Sync from Cloud
+// Load Student Data (strictly anchored to master INITIAL_STUDENTS) + Sync from Cloud
 function initStudentsData() {
   const stored = localStorage.getItem(STORAGE_KEY);
   if (stored) {
     try {
-      APP_STATE.students = JSON.parse(stored);
-      APP_STATE.students.forEach(s => {
-        const initRec = INITIAL_STUDENTS.find(i => i.id === s.id);
-        if (initRec) {
-          // Always ensure color, kingdom, and sibling notes remain in sync with master data
-          s.color = initRec.color;
-          s.kingdom = initRec.kingdom;
-          if (initRec.sibling) {
-            s.sibling = initRec.sibling;
-          }
+      const storedList = JSON.parse(stored);
+      const storedMap = new Map();
+      if (Array.isArray(storedList)) {
+        storedList.forEach(s => {
+          if (s && s.id !== undefined) storedMap.set(s.id, s);
+        });
+      }
+
+      // Build APP_STATE.students strictly from master INITIAL_STUDENTS (purging resigned students like #175, #176)
+      APP_STATE.students = INITIAL_STUDENTS.map(initRec => {
+        const student = JSON.parse(JSON.stringify(initRec));
+        const saved = storedMap.get(initRec.id);
+        if (saved && Array.isArray(saved.events)) {
+          student.events = saved.events;
         }
+        return student;
       });
+
+      // Synchronize back to localStorage so purged students are removed from user cache immediately
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(APP_STATE.students));
     } catch (e) {
       APP_STATE.students = JSON.parse(JSON.stringify(INITIAL_STUDENTS));
     }
@@ -74,12 +82,14 @@ function initStudentsData() {
     if (oldStored) {
       try {
         const oldData = JSON.parse(oldStored);
-        oldData.forEach(oldStudent => {
-          const target = APP_STATE.students.find(s => s.id === oldStudent.id);
-          if (target && oldStudent.events && oldStudent.events.length > 0) {
-            target.events = oldStudent.events;
-          }
-        });
+        if (Array.isArray(oldData)) {
+          oldData.forEach(oldStudent => {
+            const target = APP_STATE.students.find(s => s.id === oldStudent.id);
+            if (target && Array.isArray(oldStudent.events) && oldStudent.events.length > 0) {
+              target.events = oldStudent.events;
+            }
+          });
+        }
       } catch (err) {
         console.warn('Could not migrate old registrations:', err);
       }
@@ -140,6 +150,7 @@ async function fetchCloudRegistrations() {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(APP_STATE.students));
         renderRosterView();
         updateRosterStats();
+        if (typeof renderEventRegistrationView === 'function') renderEventRegistrationView();
         showAutoSaveIndicator('Cloud Synced');
       }
     }
@@ -275,7 +286,7 @@ function setupNavigation() {
 
   if (window.location.hash) {
     const hash = window.location.hash.replace('#', '');
-    if (['roster', 'scoreboard', 'callroom', 'siblings', 'print', 'duties', 'schedule', 'handbook', 'registration', 'kingdoms'].includes(hash)) {
+    if (['event-registration', 'roster', 'scoreboard', 'callroom', 'siblings', 'print', 'duties', 'schedule', 'handbook', 'registration', 'kingdoms'].includes(hash)) {
       switchTab(hash);
     }
   }
@@ -305,7 +316,9 @@ function switchTab(tabId) {
   });
 
   // Re-render specific view to ensure fresh state and content visibility
-  if (tabId === 'schedule') {
+  if (tabId === 'event-registration') {
+    if (typeof renderEventRegistrationView === 'function') renderEventRegistrationView();
+  } else if (tabId === 'schedule') {
     renderScheduleView();
   } else if (tabId === 'handbook') {
     renderHandbookView();
@@ -516,6 +529,7 @@ function renderAllViews() {
   renderHandbookView();
   renderRegistrationHub();
   renderKingdomShowcase();
+  if (typeof renderEventRegistrationView === 'function') renderEventRegistrationView();
 }
 
 // Render Roster View
