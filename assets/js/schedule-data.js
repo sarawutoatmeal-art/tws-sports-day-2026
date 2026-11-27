@@ -60,13 +60,13 @@ const EVENT_SCHEDULE = [
     time: "10:00 – 10:15",
     callTime: "09:50",
     eventCode: "Events #29–30",
-    title: "Football 5v5 Championship (G3–G6)",
-    thaiTitle: "ฟุตบอล G3–G6 ชิงอันดับ 3 และ 1",
+    title: "Football Split-Squad Championship (G3–G6)",
+    thaiTitle: "ฟุตบอลแบ่งเซต G3–G6 ชิงอันดับ 3 และ 1",
     category: "court",
     location: "Gymnasium Field Court",
-    description: "5 players per team (including 1 goalkeeper). 3rd place match followed immediately by the Championship final. 6 minutes continuous play per match (no half-time).",
-    rules: "No offside. Throw-ins replaced with kick-ins. Substitutions on the fly with referee acknowledgment.",
-    medals: "5 Gold, 5 Silver, 5 Bronze (15 Medals)",
+    description: "9 players per team (4 players G3–G4, 4 players G5–G6, and 1 Goalkeeper from Higher Grade). 1st half (4 mins): G3–G4 squad; 2nd half (4 mins): G5–G6 squad. Goalkeeper plays full 8 minutes without substituting. Immediate penalty shootout if tied at full time.",
+    rules: "4 mins 1st set (G3–G4, 4 players) + 4 mins 2nd set (G5–G6, 4 players). 1 Goalkeeper (G5–G6 only) plays the entire match without substitution. No offside. Kick-ins instead of throw-ins. Tied matches proceed directly to sudden-death penalty shootout.",
+    medals: "9 Gold, 9 Silver, 9 Bronze (27 Medals)",
     highlight: false
   },
   {
@@ -202,16 +202,16 @@ const EVENT_SCHEDULE = [
 const MEDAL_STATS = [
   { sport: "30-Meter Sprint", gold: 22, silver: 22, bronze: 22, total: 66, note: "G1–G5 (4 heats/grade) + G6 (2 heats) = 22 heats" },
   { sport: "6 × 30m Shuttle Relay", gold: 24, silver: 24, bronze: 24, total: 72, note: "4 divisions × 6 runners per team" },
-  { sport: "Football 5v5 (G3–G6)", gold: 5, silver: 5, bronze: 5, total: 15, note: "Top 3 teams (5 players each)" },
+  { sport: "Football Split-Squad (G3–G6)", gold: 9, silver: 9, bronze: 9, total: 27, note: "Top 3 teams (9 squad members: 4 G3-G4 + 4 G5-G6 + 1 GK)" },
   { sport: "Chairball (G1–G2)", gold: 6, silver: 6, bronze: 6, total: 18, note: "Top 3 teams (6 squad members each including basket holder)" },
   { sport: "Basketball 3×3 (G3–G6)", gold: 6, silver: 6, bronze: 6, total: 18, note: "Top 3 teams (6 squad members each)" }
 ];
 
 const TOTAL_MEDALS = {
-  gold: 63,
-  silver: 63,
-  bronze: 63,
-  overall: 189
+  gold: 67,
+  silver: 67,
+  bronze: 67,
+  overall: 201
 };
 
 if (typeof window !== 'undefined') {

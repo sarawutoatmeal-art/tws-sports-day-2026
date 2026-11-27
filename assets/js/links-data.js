@@ -12,7 +12,7 @@ const OFFICIAL_LINKS = {
       url: "https://docs.google.com/document/d/1YtgJjH1ALr8UXKCoVgftZMUUhPJmnTZOV7QX4cBDgGg/edit?tab=t.0",
       type: "Google Docs",
       icon: "file-text",
-      description: "กำหนดการอย่างเป็นทางการ กติกาการแข่งขันแต่ละรายการ กฎความปลอดภัย ข้อปฏิบัติครูและผู้ปกครอง รายละเอียด 189 เหรียญรางวัล",
+      description: "กำหนดการอย่างเป็นทางการ กติกาการแข่งขันแต่ละรายการ กฎความปลอดภัย ข้อปฏิบัติครูและผู้ปกครอง รายละเอียด 201 เหรียญรางวัล",
       primaryActionText: "เปิดอ่านสูจิบัตร (TH)",
       viewModeUrl: "https://docs.google.com/document/d/1YtgJjH1ALr8UXKCoVgftZMUUhPJmnTZOV7QX4cBDgGg/preview"
     },
@@ -96,7 +96,7 @@ const MASTER_EVENT_CODES = [
   { code: "E24", sport: "6x30m Shuttle Relay", division: "G1-G3 Girls (2/grade)", quota: 6, callTime: "09:35", startTime: "09:45", endTime: "10:00", minGrade: 1, maxGrade: 3, gender: "Girl", parents: 0 },
   { code: "E25", sport: "6x30m Shuttle Relay", division: "G4-G6 Boys (2/grade)", quota: 6, callTime: "09:35", startTime: "09:45", endTime: "10:00", minGrade: 4, maxGrade: 6, gender: "Boy", parents: 0 },
   { code: "E26", sport: "6x30m Shuttle Relay", division: "G4-G6 Girls (2/grade)", quota: 6, callTime: "09:35", startTime: "09:45", endTime: "10:00", minGrade: 4, maxGrade: 6, gender: "Girl", parents: 0 },
-  { code: "E27", sport: "Football 5v5", division: "G3-G6 Squad", quota: 5, callTime: "09:50", startTime: "10:00", endTime: "10:15", minGrade: 3, maxGrade: 6, gender: "Any", parents: 0 },
+  { code: "E27", sport: "Football Split-Squad", division: "G3-G6 (4 Jr + 4 Sr + 1 GK)", quota: 9, callTime: "09:50", startTime: "10:00", endTime: "10:15", minGrade: 3, maxGrade: 6, gender: "Any", parents: 0 },
   { code: "E28", sport: "Primary Chairball", division: "G1-G2 Squad", quota: 6, callTime: "10:05", startTime: "10:15", endTime: "10:25", minGrade: 1, maxGrade: 2, gender: "Any", parents: 0 },
   { code: "E29", sport: "Basketball 3x3", division: "G3-G4 Junior Squad", quota: 3, callTime: "10:15", startTime: "10:25", endTime: "10:35", minGrade: 3, maxGrade: 4, gender: "Any", parents: 0 },
   { code: "E30", sport: "Basketball 3x3", division: "G5-G6 Senior Squad", quota: 3, callTime: "10:15", startTime: "10:25", endTime: "10:35", minGrade: 5, maxGrade: 6, gender: "Any", parents: 0 },
@@ -130,15 +130,15 @@ const SPORT_REGISTRATION_CATEGORIES = [
     rules: "Each kingdom enters 4 relay teams: G1-G3 Boys, G1-G3 Girls, G4-G6 Boys, G4-G6 Girls."
   },
   {
-    id: "football_5v5",
-    name: "Football 5v5 Championship (ฟุตบอล)",
+    id: "football_split",
+    name: "Football Split-Squad (ฟุตบอลแบ่งเซต)",
     grades: "G3 - G6",
     gender: "Open / Co-ed (E27)",
-    quotaPerColor: "5 players on court (including 1 GK) + subs",
+    quotaPerColor: "9 players (4 G3–G4 + 4 G5–G6 + 1 Higher Grade GK)",
     icon: "activity",
     type: "Team Sport",
-    description: "6 minutes continuous match. Preliminary rounds completed before Jan 8. Finals on event day.",
-    rules: "Separate football and basketball players where possible to avoid player fatigue."
+    description: "4 mins G3-G4 squad + 4 mins G5-G6 squad. 1 GK from Higher Grade plays full match without sub. If tied, immediate penalty shootout.",
+    rules: "Separate football and basketball players where possible to avoid player fatigue. Goalkeeper must be G5–G6."
   },
   {
     id: "chairball",

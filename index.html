@@ -175,65 +175,78 @@
 
     <!-- Navigation Tabs Bar (Frosted Glass Sticky Header) -->
     <div class="border-t border-[rgba(0,0,0,0.08)] frosted-glass-nav sticky top-0 z-30">
-      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <nav class="flex items-center gap-1 sm:gap-1.5 overflow-x-auto py-2 no-scrollbar" aria-label="Main Navigation">
+      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2">
+        <nav class="flex items-center gap-1 sm:gap-1.5 overflow-x-auto py-2 no-scrollbar flex-1" aria-label="Main Navigation">
           
           <button data-tab-target="kingdoms" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border transition whitespace-nowrap bg-[#0B1E36] text-white border-[#0B1E36] shadow-xs min-h-[38px]">
             <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-            <span>4 Kingdoms</span>
+            <span data-i18n="nav_kingdoms">4 Kingdoms</span>
           </button>
 
           <button data-tab-target="event-registration" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-amber-700 hover:text-amber-900 bg-amber-50 hover:bg-amber-100 transition whitespace-nowrap min-h-[38px]">
             <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-            <span>ลงทะเบียนตามรายการ</span>
+            <span data-i18n="nav_event_reg">ลงทะเบียนตามรายการ</span>
           </button>
 
           <button data-tab-target="roster" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
             <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-            <span>Rosters (230)</span>
+            <span data-i18n="nav_roster">ทำเนียบนักเรียน (230)</span>
           </button>
 
           <button data-tab-target="scoreboard" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
             <svg class="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-            <span>Scoreboard</span>
+            <span data-i18n="nav_scoreboard">Scoreboard</span>
           </button>
 
           <button data-tab-target="callroom" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
             <svg class="w-3.5 h-3.5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
-            <span>Call Room</span>
+            <span data-i18n="nav_callroom">Call Room</span>
           </button>
 
           <button data-tab-target="print" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
             <svg class="w-3.5 h-3.5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-            <span>Print Center</span>
+            <span data-i18n="nav_print">Print Center</span>
           </button>
 
           <button data-tab-target="duties" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
             <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-            <span>Duties & Staff</span>
+            <span data-i18n="nav_duties">Duties & Staff</span>
           </button>
 
           <button data-tab-target="schedule" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
             <svg class="w-3.5 h-3.5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span>Schedule</span>
+            <span data-i18n="nav_schedule">Schedule</span>
           </button>
 
           <button data-tab-target="handbook" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
             <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-            <span>189 Medals</span>
+            <span data-i18n="nav_handbook">201 Medals</span>
           </button>
 
           <button data-tab-target="registration" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
             <svg class="w-3.5 h-3.5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
-            <span>Document Hub</span>
+            <span data-i18n="nav_documents">Document Hub</span>
           </button>
 
           <button data-tab-target="siblings" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold border border-transparent text-slate-700 hover:text-[#0B1E36] hover:bg-slate-100 transition whitespace-nowrap min-h-[38px]">
             <svg class="w-3.5 h-3.5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-            <span>Siblings (พี่น้อง)</span>
+            <span data-i18n="nav_siblings">Siblings (พี่น้อง)</span>
           </button>
 
         </nav>
+
+        <!-- Full-Site Language Switcher (Thai / English) -->
+        <button 
+          id="btn-lang-toggle" 
+          onclick="toggleLanguage()" 
+          class="shrink-0 ml-1 py-1 px-1 rounded-full hover:scale-105 active:scale-95 transition"
+          title="Switch Language (เปลี่ยนภาษาไทย / English)"
+        >
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border transition shadow-xs bg-slate-100 text-slate-800 border-slate-300 hover:bg-slate-200">
+            <span class="text-sm">🇹🇭</span>
+            <span>TH</span>
+          </span>
+        </button>
       </div>
     </div>
   </header>
@@ -369,10 +382,10 @@
           <svg class="w-3.5 h-3.5 text-amber-600 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <span>EVENT-FIRST QUOTA REGISTRATION</span>
         </div>
-        <h2 class="text-2xl font-black font-royal text-[#0B1E36] flex items-center gap-2">
+        <h2 class="text-2xl font-black font-royal text-[#0B1E36] flex items-center gap-2" data-i18n="reg_title">
           ระบบลงทะเบียนตามรายการแข่งขันและโควตาทีม
         </h2>
-        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+        <p class="text-xs sm:text-sm text-slate-500 mt-1" data-i18n="reg_sub">
           เลือกสีประจำอาณาจักรของคุณ และกดเลือกนักเรียนลงตามโควตารายการแข่งขันได้ทันที (ระบบจะจำกัดโควตาและคัดกรองเฉพาะเด็กที่ตรงเกณฑ์ให้อัตโนมัติ)
         </p>
       </div>
@@ -641,7 +654,7 @@
           </div>
           <h2 class="title-section font-royal text-[#0B1E36] flex items-center gap-2">
             <svg class="w-6 h-6 text-amber-500 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
-            <span>Live Scoreboard & 189 Medals Tally (กระดานคะแนนและเหรียญรางวัล)</span>
+            <span>Live Scoreboard & 201 Medals Tally (กระดานคะแนนและเหรียญรางวัล)</span>
           </h2>
           <p class="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
             เกณฑ์คะแนน: เหรียญทอง = 5 คะแนน | เหรียญเงิน = 3 คะแนน | เหรียญทองแดง = 1 คะแนน (บันทึกผลได้สดๆ คุณครูทุกท่านเห็นพร้อมกัน)
@@ -687,7 +700,7 @@
             </p>
           </div>
           <div class="text-xs font-bold text-slate-500">
-            Total Medals: <span class="text-amber-700 font-mono">189 Medals</span>
+            Total Medals: <span class="text-amber-700 font-mono">201 Medals</span>
           </div>
         </div>
 
@@ -936,10 +949,10 @@
           </div>
           <h2 class="text-2xl font-black font-royal text-[#0B1E36] flex items-center gap-2">
             <svg class="w-6 h-6 text-amber-600 inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-            <span>Official Handbook, Rules & 189 Medals Overview</span>
+            <span>Official Handbook, Rules & 201 Medals Overview</span>
           </h2>
           <p class="text-xs sm:text-sm text-slate-500 mt-1">
-            TECHAWIT PRIMARY SPORTS DAY 2026 • สูจิบัตรและคู่มือกติกาอย่างเป็นทางการ พร้อมสรุปโควตา 189 เหรียญรางวัล
+            TECHAWIT PRIMARY SPORTS DAY 2026 • สูจิบัตรและคู่มือกติกาอย่างเป็นทางการ พร้อมสรุปโควตา 201 เหรียญรางวัล
           </p>
         </div>
 
@@ -980,25 +993,25 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
           <div class="p-4 rounded-xl bg-white border border-yellow-200 shadow-sm">
             <span class="text-xs uppercase font-bold text-yellow-700">Gold Medals</span>
-            <div class="text-3xl font-black text-yellow-600 font-mono mt-1">63</div>
+            <div class="text-3xl font-black text-yellow-600 font-mono mt-1">67</div>
             <span class="text-xs text-slate-500">1st Place Champions</span>
           </div>
 
           <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
             <span class="text-xs uppercase font-bold text-slate-600">Silver Medals</span>
-            <div class="text-3xl font-black text-slate-600 font-mono mt-1">63</div>
+            <div class="text-3xl font-black text-slate-600 font-mono mt-1">67</div>
             <span class="text-xs text-slate-500">1st Runner-Up</span>
           </div>
 
           <div class="p-4 rounded-xl bg-white border border-amber-200 shadow-sm">
             <span class="text-xs uppercase font-bold text-amber-800">Bronze Medals</span>
-            <div class="text-3xl font-black text-amber-700 font-mono mt-1">63</div>
+            <div class="text-3xl font-black text-amber-700 font-mono mt-1">67</div>
             <span class="text-xs text-slate-500">2nd Runner-Up</span>
           </div>
 
           <div class="p-4 rounded-xl bg-[#0B1E36] text-white shadow-sm">
             <span class="text-xs uppercase font-bold text-[#F4E7BD]">Total Medals</span>
-            <div class="text-3xl font-black text-white font-mono mt-1">189</div>
+            <div class="text-3xl font-black text-white font-mono mt-1">201</div>
             <span class="text-xs text-slate-300">5 Major Sport Divisions</span>
           </div>
         </div>
@@ -1008,7 +1021,7 @@
       <div class="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
         <div class="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
           <h3 class="font-bold text-[#0B1E36] text-sm">Medal Allocation Breakdown by Sport Discipline</h3>
-          <span class="text-xs font-mono font-bold text-[#0B1E36]">189 Total Medals</span>
+          <span class="text-xs font-mono font-bold text-[#0B1E36]">201 Total Medals</span>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full text-left border-collapse clean-table">
@@ -1069,7 +1082,7 @@
               </div>
               <h4 class="text-base font-bold text-[#0B1E36]">สูจิบัตรและคู่มือกติกาการแข่งขัน 2569</h4>
               <p class="text-xs text-slate-600 leading-relaxed">
-                กำหนดการอย่างเป็นทางการ กติกาการแข่งขันแต่ละรายการ กฎความปลอดภัย ข้อปฏิบัติครูและผู้ปกครอง และรายละเอียด 189 เหรียญรางวัล
+                กำหนดการอย่างเป็นทางการ กติกาการแข่งขันแต่ละรายการ กฎความปลอดภัย ข้อปฏิบัติครูและผู้ปกครอง และรายละเอียด 201 เหรียญรางวัล
               </p>
             </div>
             <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2">
@@ -1105,7 +1118,7 @@
               </div>
               <h4 class="text-base font-bold text-[#0B1E36]">TWS Sports Day 2026: Official Program</h4>
               <p class="text-xs text-slate-600 leading-relaxed">
-                Official English program itinerary, match times, sportsmanship values, scoring rubrics, safety directives, and 189 medal stakes.
+                Official English program itinerary, match times, sportsmanship values, scoring rubrics, safety directives, and 201 medal stakes.
               </p>
             </div>
             <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2">
@@ -1666,12 +1679,13 @@
   </footer>
 
   <!-- Scripts (Versioned to bust browser cache) -->
-  <script src="assets/js/icons.js?v=20261127_0940" charset="UTF-8"></script>
-  <script src="assets/js/students-data.js?v=20261127_0940" charset="UTF-8"></script>
-  <script src="assets/js/duties-data.js?v=20261127_0940" charset="UTF-8"></script>
-  <script src="assets/js/schedule-data.js?v=20261127_0940" charset="UTF-8"></script>
-  <script src="assets/js/links-data.js?v=20261127_0940" charset="UTF-8"></script>
-  <script src="assets/js/event-registration.js?v=20261127_0940" charset="UTF-8"></script>
-  <script src="assets/js/app.js?v=20261127_0940" charset="UTF-8"></script>
+  <script src="assets/js/i18n.js?v=20261127_1430" charset="UTF-8"></script>
+  <script src="assets/js/icons.js?v=20261127_1430" charset="UTF-8"></script>
+  <script src="assets/js/students-data.js?v=20261127_1430" charset="UTF-8"></script>
+  <script src="assets/js/duties-data.js?v=20261127_1430" charset="UTF-8"></script>
+  <script src="assets/js/schedule-data.js?v=20261127_1430" charset="UTF-8"></script>
+  <script src="assets/js/links-data.js?v=20261127_1430" charset="UTF-8"></script>
+  <script src="assets/js/event-registration.js?v=20261127_1430" charset="UTF-8"></script>
+  <script src="assets/js/app.js?v=20261127_1430" charset="UTF-8"></script>
 </body>
 </html>

@@ -850,7 +850,7 @@ function openEditModal(studentId) {
       isAlternateHeat: true
     }] : []),
     { name: '6x30m Relay (วิ่งผลัด 6x30 ม.)', desc: 'Junior G1–G3 or Senior G4–G6 (6 runners per team, Boys/Girls)', eligible: true },
-    { name: 'Football 5v5 (ฟุตบอล)', desc: 'Grade 3–6 gymnasium court (5 players on pitch incl. Goalkeeper)', eligible: grade >= 3 },
+    { name: 'Football 5v5 (ฟุตบอล)', desc: 'Grade 3–6 (9 squad members: 4 G3–G4 + 4 G5–G6 + 1 GK Higher Grade)', eligible: grade >= 3 },
     { name: 'Primary Chairball (แชร์บอล)', desc: 'Grade 1–2 Courts A & B (6 players per team incl. 1 basket catcher)', eligible: grade <= 2 },
     { name: 'Basketball 3x3 (บาสเกตบอล)', desc: 'Grade 3–6 (Junior squad G3–4 & Senior squad G5–6)', eligible: grade >= 3 },
     { name: 'Fastball Throwing (Family Game)', desc: 'Grade 1–6 (Boy 1, Girl 1 per grade = 12 students + 1 parent giant basket holder)', eligible: true },
