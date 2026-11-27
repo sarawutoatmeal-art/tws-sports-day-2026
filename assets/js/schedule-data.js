@@ -1,6 +1,19 @@
 // Techawit School Sports Day 2026 - Master Schedule, Rules & Medal Breakdown
+
+const SCHEDULE_PHASES = [
+  { id: 'all', time: '08:00 – 12:15', titleTh: 'ตารางทั้งวัน (All Day)', titleEn: 'All Day Schedule', badge: '4 ชม. 15 นาที' },
+  { id: '1', time: '08:00 – 08:50', titleTh: 'ช่วง 1: รวมพล & พิธีเปิด', titleEn: 'Phase 1: Assembly & Opening', badge: '3 รายการ' },
+  { id: '2', time: '09:00 – 10:00', titleTh: 'ช่วง 2: กรีฑาลู่ (วิ่ง & ผลัด)', titleEn: 'Phase 2: Track Athletics', badge: '138 เหรียญ' },
+  { id: '3', time: '10:00 – 10:35', titleTh: 'ช่วง 3: กีฬาคอร์ท (บอล/แชร์บอล/บาส)', titleEn: 'Phase 3: Court Team Sports', badge: '63 เหรียญ' },
+  { id: '4', time: '10:35 – 11:50', titleTh: 'ช่วง 4: ครอบครัว & นัดพิเศษ', titleEn: 'Phase 4: Family & Special', badge: '7 กิจกรรม' },
+  { id: '5', time: '11:55 – 12:15', titleTh: 'ช่วง 5: พิธีปิด & มอบถ้วย', titleEn: 'Phase 5: Closing Ceremony', badge: 'ถ้วยเกียรติยศ' }
+];
+
 const EVENT_SCHEDULE = [
   {
+    phase: '1',
+    phaseTitleTh: "ช่วงที่ 1: พิธีเปิดและรวมพลนักเรียน",
+    phaseTitleEn: "Phase 1: Student Assembly & Grand Opening Ceremony",
     time: "08:00 – 08:20",
     callTime: "–",
     title: "Registration & Welcome",
@@ -11,6 +24,9 @@ const EVENT_SCHEDULE = [
     highlight: false
   },
   {
+    phase: '1',
+    phaseTitleTh: "ช่วงที่ 1: พิธีเปิดและรวมพลนักเรียน",
+    phaseTitleEn: "Phase 1: Student Assembly & Grand Opening Ceremony",
     time: "08:20 – 08:30",
     callTime: "08:15",
     title: "Kingdom Assembly",
@@ -21,6 +37,9 @@ const EVENT_SCHEDULE = [
     highlight: false
   },
   {
+    phase: '1',
+    phaseTitleTh: "ช่วงที่ 1: พิธีเปิดและรวมพลนักเรียน",
+    phaseTitleEn: "Phase 1: Student Assembly & Grand Opening Ceremony",
     time: "08:30 – 08:50",
     callTime: "08:25",
     title: "Grand Opening Ceremony",
@@ -31,6 +50,9 @@ const EVENT_SCHEDULE = [
     highlight: true
   },
   {
+    phase: '2',
+    phaseTitleTh: "ช่วงที่ 2: กรีฑาลู่ วิ่ง 30 เมตร (22 Heats) & ผลัด 6×30ม.",
+    phaseTitleEn: "Phase 2: Track Athletics (30m Sprint 22 Heats & 6x30m Relays)",
     time: "09:00 – 09:45",
     callTime: "08:50",
     eventCode: "Events #1–22",
@@ -44,6 +66,9 @@ const EVENT_SCHEDULE = [
     highlight: true
   },
   {
+    phase: '2',
+    phaseTitleTh: "ช่วงที่ 2: กรีฑาลู่ วิ่ง 30 เมตร (22 Heats) & ผลัด 6×30ม.",
+    phaseTitleEn: "Phase 2: Track Athletics (30m Sprint 22 Heats & 6x30m Relays)",
     time: "09:45 – 10:00",
     callTime: "09:35",
     eventCode: "Events #25–28",
@@ -57,6 +82,9 @@ const EVENT_SCHEDULE = [
     highlight: true
   },
   {
+    phase: '3',
+    phaseTitleTh: "ช่วงที่ 3: กีฬาคอร์ท ฟุตบอลแบ่งเซต 9 คน, แชร์บอล, บาสเกตบอล 3×3",
+    phaseTitleEn: "Phase 3: Court Team Sports (Football Split-Squad 9, Chairball, Basketball 3x3)",
     time: "10:00 – 10:15",
     callTime: "09:50",
     eventCode: "Events #29–30",
@@ -70,6 +98,9 @@ const EVENT_SCHEDULE = [
     highlight: false
   },
   {
+    phase: '3',
+    phaseTitleTh: "ช่วงที่ 3: กีฬาคอร์ท ฟุตบอลแบ่งเซต 9 คน, แชร์บอล, บาสเกตบอล 3×3",
+    phaseTitleEn: "Phase 3: Court Team Sports (Football Split-Squad 9, Chairball, Basketball 3x3)",
     time: "10:15 – 10:25",
     callTime: "10:05",
     eventCode: "Events #31–32",
@@ -83,6 +114,9 @@ const EVENT_SCHEDULE = [
     highlight: false
   },
   {
+    phase: '3',
+    phaseTitleTh: "ช่วงที่ 3: กีฬาคอร์ท ฟุตบอลแบ่งเซต 9 คน, แชร์บอล, บาสเกตบอล 3×3",
+    phaseTitleEn: "Phase 3: Court Team Sports (Football Split-Squad 9, Chairball, Basketball 3x3)",
     time: "10:25 – 10:35",
     callTime: "10:15",
     eventCode: "Events #33–34",
@@ -96,6 +130,9 @@ const EVENT_SCHEDULE = [
     highlight: false
   },
   {
+    phase: '4',
+    phaseTitleTh: "ช่วงที่ 4: เกมสายสัมพันธ์ครอบครัว & นัดพิเศษครู-ผู้ปกครอง",
+    phaseTitleEn: "Phase 4: Family Fellowship Games & Special Exhibition Showdowns",
     time: "10:35 – 10:45",
     callTime: "10:25",
     eventCode: "Event #35",
@@ -109,6 +146,9 @@ const EVENT_SCHEDULE = [
     highlight: false
   },
   {
+    phase: '4',
+    phaseTitleTh: "ช่วงที่ 4: เกมสายสัมพันธ์ครอบครัว & นัดพิเศษครู-ผู้ปกครอง",
+    phaseTitleEn: "Phase 4: Family Fellowship Games & Special Exhibition Showdowns",
     time: "10:45 – 10:55",
     callTime: "10:35",
     eventCode: "Event #36",
@@ -122,6 +162,9 @@ const EVENT_SCHEDULE = [
     highlight: false
   },
   {
+    phase: '4',
+    phaseTitleTh: "ช่วงที่ 4: เกมสายสัมพันธ์ครอบครัว & นัดพิเศษครู-ผู้ปกครอง",
+    phaseTitleEn: "Phase 4: Family Fellowship Games & Special Exhibition Showdowns",
     time: "10:55 – 11:05",
     callTime: "10:45",
     eventCode: "Event #37",
@@ -135,6 +178,9 @@ const EVENT_SCHEDULE = [
     highlight: false
   },
   {
+    phase: '4',
+    phaseTitleTh: "ช่วงที่ 4: เกมสายสัมพันธ์ครอบครัว & นัดพิเศษครู-ผู้ปกครอง",
+    phaseTitleEn: "Phase 4: Family Fellowship Games & Special Exhibition Showdowns",
     time: "11:05 – 11:15",
     callTime: "10:55",
     eventCode: "Event #38",
@@ -148,6 +194,9 @@ const EVENT_SCHEDULE = [
     highlight: false
   },
   {
+    phase: '4',
+    phaseTitleTh: "ช่วงที่ 4: เกมสายสัมพันธ์ครอบครัว & นัดพิเศษครู-ผู้ปกครอง",
+    phaseTitleEn: "Phase 4: Family Fellowship Games & Special Exhibition Showdowns",
     time: "11:15 – 11:25",
     callTime: "11:05",
     eventCode: "Special #38B",
@@ -161,6 +210,9 @@ const EVENT_SCHEDULE = [
     highlight: true
   },
   {
+    phase: '4',
+    phaseTitleTh: "ช่วงที่ 4: เกมสายสัมพันธ์ครอบครัว & นัดพิเศษครู-ผู้ปกครอง",
+    phaseTitleEn: "Phase 4: Family Fellowship Games & Special Exhibition Showdowns",
     time: "11:25 – 11:35",
     callTime: "11:15",
     eventCode: "Special #39",
@@ -174,6 +226,9 @@ const EVENT_SCHEDULE = [
     highlight: true
   },
   {
+    phase: '4',
+    phaseTitleTh: "ช่วงที่ 4: เกมสายสัมพันธ์ครอบครัว & นัดพิเศษครู-ผู้ปกครอง",
+    phaseTitleEn: "Phase 4: Family Fellowship Games & Special Exhibition Showdowns",
     time: "11:35 – 11:50",
     callTime: "11:25",
     eventCode: "Special #40–41",
@@ -187,6 +242,9 @@ const EVENT_SCHEDULE = [
     highlight: true
   },
   {
+    phase: '5',
+    phaseTitleTh: "ช่วงที่ 5: พิธีปิดและมอบถ้วยรางวัลเกียรติยศ",
+    phaseTitleEn: "Phase 5: Grand Closing Ceremony & Championship Trophies",
     time: "11:55 – 12:15",
     callTime: "11:55",
     title: "Grand Closing Ceremony & Trophies",
@@ -215,11 +273,12 @@ const TOTAL_MEDALS = {
 };
 
 if (typeof window !== 'undefined') {
+  window.SCHEDULE_PHASES = SCHEDULE_PHASES;
   window.EVENT_SCHEDULE = EVENT_SCHEDULE;
   window.MEDAL_STATS = MEDAL_STATS;
   window.TOTAL_MEDALS = TOTAL_MEDALS;
 }
 
 if (typeof module !== 'undefined') {
-  module.exports = { EVENT_SCHEDULE, MEDAL_STATS, TOTAL_MEDALS };
+  module.exports = { SCHEDULE_PHASES, EVENT_SCHEDULE, MEDAL_STATS, TOTAL_MEDALS };
 }

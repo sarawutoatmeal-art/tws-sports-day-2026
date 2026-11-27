@@ -9,7 +9,7 @@ const REFEREE_PIN_HASH = '2d6c50388f532bd1bbe52e5a25fad2a7fd3955bb2855b0b72cd287
 const CLOUD_API_URL = 'https://script.google.com/macros/s/AKfycbxQj8luQpodPnAddsIXC4eWAKVkzktkZgx4QTOuceZN8M_e8dLPozUW6s0HaMUy3H6_/exec';
 
 const APP_STATE = {
-  activeTab: 'kingdoms',
+  activeTab: 'schedule',
   selectedColor: 'all', // 'all', 'Purple', 'Red', 'Yellow', 'Green'
   selectedClass: 'all',
   selectedGender: 'all',
@@ -17,6 +17,8 @@ const APP_STATE = {
   searchQuery: '',
   dutySearchQuery: '',
   scheduleFilter: 'all',
+  schedulePhase: 'all',
+  scheduleSearch: '',
   siblingSearchQuery: '',
   siblingLevelFilter: 'all',
   siblingColorFilter: 'all',
@@ -286,9 +288,13 @@ function setupNavigation() {
 
   if (window.location.hash) {
     const hash = window.location.hash.replace('#', '');
-    if (['event-registration', 'roster', 'scoreboard', 'callroom', 'siblings', 'print', 'duties', 'schedule', 'handbook', 'registration', 'kingdoms'].includes(hash)) {
+    if (['schedule', 'event-registration', 'roster', 'scoreboard', 'callroom', 'siblings', 'print', 'duties', 'registration', 'kingdoms', 'handbook'].includes(hash)) {
       switchTab(hash);
+    } else {
+      switchTab('schedule');
     }
+  } else {
+    switchTab('schedule');
   }
 }
 
@@ -509,13 +515,21 @@ function setupScheduleFilters() {
       APP_STATE.scheduleFilter = cat;
 
       document.querySelectorAll('[data-schedule-filter]').forEach(b => {
-        b.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+        b.className = 'px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
       });
-      btn.className = 'px-3 py-1 rounded-full text-xs font-bold bg-amber-500 text-white shadow-sm';
+      btn.className = 'px-3 py-1.5 rounded-full text-xs font-bold bg-[#0B1E36] text-white shadow-2xs transition';
 
       renderScheduleView();
     });
   });
+
+  const searchInput = document.getElementById('schedule-search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      APP_STATE.scheduleSearch = e.target.value;
+      renderScheduleView();
+    });
+  }
 }
 
 // Render All Views
@@ -2255,7 +2269,7 @@ function renderCallRoomView() {
 }
 
 // ==========================================
-// RENDER OFFICIAL SCHEDULE VIEW
+// RENDER OFFICIAL SCHEDULE VIEW (ENHANCED PHASE-BASED)
 // ==========================================
 function renderScheduleView() {
   const container = document.getElementById('schedule-timeline-container');
@@ -2266,103 +2280,305 @@ function renderScheduleView() {
     return;
   }
 
+  const isEn = (typeof TWS_I18N !== 'undefined' && TWS_I18N.getLang && TWS_I18N.getLang() === 'en');
+
+  // Render Phase Navigation Pills
+  const phasePillsContainer = document.getElementById('schedule-phase-pills');
+  if (phasePillsContainer && typeof SCHEDULE_PHASES !== 'undefined') {
+    phasePillsContainer.innerHTML = SCHEDULE_PHASES.map(p => {
+      const isActive = (APP_STATE.schedulePhase === p.id);
+      const title = isEn ? p.titleEn : p.titleTh;
+      const btnClass = isActive
+        ? 'px-3 py-1.5 rounded-full text-xs font-bold bg-[#0B1E36] text-white shadow-2xs transition whitespace-nowrap'
+        : 'px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-700 hover:bg-slate-200 border border-slate-200 transition whitespace-nowrap';
+      return `
+        <button data-schedule-phase="${p.id}" class="${btnClass}">
+          <span>${title}</span>
+          <span class="text-[10px] ml-1 font-mono opacity-80">(${p.time})</span>
+        </button>
+      `;
+    }).join('');
+
+    // Attach click events
+    phasePillsContainer.querySelectorAll('[data-schedule-phase]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        APP_STATE.schedulePhase = btn.getAttribute('data-schedule-phase');
+        renderScheduleView();
+      });
+    });
+  }
+
+  // Filter Schedule Items
+  const q = (APP_STATE.scheduleSearch || '').trim().toLowerCase();
   let filtered = EVENT_SCHEDULE.filter(item => {
-    if (APP_STATE.scheduleFilter === 'all') return true;
-    return item.category === APP_STATE.scheduleFilter;
+    // Phase filter
+    if (APP_STATE.schedulePhase !== 'all' && item.phase !== APP_STATE.schedulePhase) {
+      return false;
+    }
+    // Category filter
+    if (APP_STATE.scheduleFilter !== 'all' && item.category !== APP_STATE.scheduleFilter) {
+      return false;
+    }
+    // Search query
+    if (q) {
+      const matchText = [
+        item.title || '',
+        item.thaiTitle || '',
+        item.eventCode || '',
+        item.location || '',
+        item.rules || '',
+        item.time || '',
+        item.callTime || '',
+        item.description || ''
+      ].join(' ').toLowerCase();
+      if (!matchText.includes(q)) return false;
+    }
+    return true;
   });
 
-  container.innerHTML = filtered.map((item, idx) => {
-    let catBadgeColor = 'bg-slate-100 text-slate-700 border-slate-200';
-    let catIcon = window.TWS_ICONS ? TWS_ICONS.clipboard('w-3.5 h-3.5') : '';
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="p-8 text-center bg-white rounded-2xl border border-slate-200 shadow-2xs space-y-3">
+        <div class="w-12 h-12 mx-auto rounded-full bg-slate-100 text-slate-400 flex items-center justify-center">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="text-sm font-bold text-slate-700">${isEn ? 'No scheduled events match your current filter' : 'ไม่พบรายการแข่งขันที่ตรงกับเงื่อนไขการค้นหา'}</div>
+        <p class="text-xs text-slate-500">${isEn ? 'Try selecting "All Day" or clearing your search term.' : 'ลองกดเลือก "ตารางทั้งวัน" หรือลบคำค้นหาเพื่อดูตารางทั้งหมด'}</p>
+        <button onclick="resetScheduleFilters()" class="px-4 py-2 rounded-full text-xs font-bold bg-[#0B1E36] text-white hover:bg-[#162F52] transition shadow-xs">
+          ${isEn ? 'Reset All Filters' : 'รีเซ็ตตัวกรองทั้งหมด'}
+        </button>
+      </div>
+    `;
+    return;
+  }
 
-    if (item.category === 'ceremony') {
-      catBadgeColor = 'bg-amber-50 text-amber-800 border-amber-200';
-      catIcon = window.TWS_ICONS ? TWS_ICONS.crown('w-3.5 h-3.5') : '';
-    } else if (item.category === 'track') {
-      catBadgeColor = 'bg-blue-50 text-blue-700 border-blue-200';
-      catIcon = window.TWS_ICONS ? TWS_ICONS.runnerTrack('w-3.5 h-3.5') : '';
-    } else if (item.category === 'court') {
-      catBadgeColor = 'bg-emerald-50 text-emerald-700 border-emerald-200';
-      catIcon = window.TWS_ICONS ? TWS_ICONS.ball('w-3.5 h-3.5') : '';
-    } else if (item.category === 'family') {
-      catBadgeColor = 'bg-purple-50 text-purple-700 border-purple-200';
-      catIcon = window.TWS_ICONS ? TWS_ICONS.users('w-3.5 h-3.5') : '';
-    } else if (item.category === 'special') {
-      catBadgeColor = 'bg-rose-50 text-rose-700 border-rose-200';
-      catIcon = window.TWS_ICONS ? TWS_ICONS.sparkles('w-3.5 h-3.5') : '';
+  // Group items by phase
+  const groupedByPhase = {};
+  filtered.forEach(item => {
+    const pId = item.phase || '1';
+    if (!groupedByPhase[pId]) groupedByPhase[pId] = [];
+    groupedByPhase[pId].push(item);
+  });
+
+  const phaseMeta = {
+    '1': {
+      titleTh: 'ช่วงที่ 1: ลงทะเบียน รวมพล 4 สี และพิธีเปิดงาน',
+      titleEn: 'Phase 1: Registration, Kingdom Assembly & Grand Opening',
+      time: '08:00 – 08:50',
+      theme: 'from-amber-500/10 via-amber-500/5 to-transparent border-amber-200 text-amber-950',
+      badgeColor: 'bg-amber-100 text-amber-800 border-amber-300'
+    },
+    '2': {
+      titleTh: 'ช่วงที่ 2: กรีฑาลู่ วิ่ง 30 เมตร (22 Heats) & วิ่งผลัด 6×30ม. (4 รายการ)',
+      titleEn: 'Phase 2: Track Athletics (30m Sprint 22 Heats & 6x30m Relays)',
+      time: '09:00 – 10:00',
+      theme: 'from-blue-500/10 via-blue-500/5 to-transparent border-blue-200 text-blue-950',
+      badgeColor: 'bg-blue-100 text-blue-800 border-blue-300'
+    },
+    '3': {
+      titleTh: 'ช่วงที่ 3: กีฬาทีมคอร์ท ฟุตบอลแบ่งเซต 9 คน, แชร์บอล ป.1–2, บาสเกตบอล 3×3',
+      titleEn: 'Phase 3: Court Team Sports (Football Split 9, Chairball, Basketball 3x3)',
+      time: '10:00 – 10:35',
+      theme: 'from-emerald-500/10 via-emerald-500/5 to-transparent border-emerald-200 text-emerald-950',
+      badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-300'
+    },
+    '4': {
+      titleTh: 'ช่วงที่ 4: เกมสายสัมพันธ์ครอบครัว & นัดพิเศษครู-ผู้ปกครอง',
+      titleEn: 'Phase 4: Family Fellowship Games & Special Exhibition Showdowns',
+      time: '10:35 – 11:50',
+      theme: 'from-purple-500/10 via-purple-500/5 to-transparent border-purple-200 text-purple-950',
+      badgeColor: 'bg-purple-100 text-purple-800 border-purple-300'
+    },
+    '5': {
+      titleTh: 'ช่วงที่ 5: พิธีมอบถ้วยรางวัลเกียรติยศ และพิธีปิดการแข่งขัน',
+      titleEn: 'Phase 5: Championship Trophy Presentations & Closing Ceremony',
+      time: '11:55 – 12:15',
+      theme: 'from-amber-500/10 via-amber-500/5 to-transparent border-amber-200 text-amber-950',
+      badgeColor: 'bg-amber-100 text-amber-800 border-amber-300'
     }
+  };
 
-    return `
-      <div class="relative pl-6 sm:pl-8 pb-7 border-l-2 border-slate-200 last:border-l-0 group">
-        <!-- Timeline Marker Dot -->
-        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-2 ${
-          item.highlight ? 'border-amber-500 ring-4 ring-amber-100' : 'border-slate-400'
-        } transition-transform group-hover:scale-125"></div>
+  let html = '';
+  Object.keys(groupedByPhase).sort().forEach(pId => {
+    const meta = phaseMeta[pId] || { titleTh: `ช่วงที่ ${pId}`, titleEn: `Phase ${pId}`, time: '', theme: 'border-slate-200', badgeColor: 'bg-slate-100 text-slate-800' };
+    const items = groupedByPhase[pId];
+    const phaseHeading = isEn ? meta.titleEn : meta.titleTh;
 
-        <!-- Schedule Card -->
-        <div class="rounded-2xl bg-white border ${
-          item.highlight ? 'border-amber-300 shadow-sm' : 'border-slate-200 shadow-2xs'
-        } p-4 sm:p-5 hover:border-slate-400 transition">
-          <div class="flex flex-wrap items-center justify-between gap-2.5 mb-2">
-            <div class="flex items-center gap-2 flex-wrap">
-              <span class="text-base font-bold text-amber-700 font-mono">${item.time} น.</span>
-              ${item.callTime && item.callTime !== '–' ? `
-                <span class="inline-flex items-center gap-1 text-[11px] px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 font-semibold font-mono">
-                  ${window.TWS_ICONS ? TWS_ICONS.megaphone('w-3 h-3 text-rose-600') : ''}
-                  <span>Call Time: ${item.callTime} น.</span>
-                </span>
-              ` : ''}
-              ${item.eventCode ? `
-                <span class="inline-flex items-center text-[11px] px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 font-mono font-bold">
-                  ${item.eventCode}
-                </span>
-              ` : ''}
-            </div>
-            <div class="flex items-center gap-2 flex-wrap">
-              <span class="inline-flex items-center gap-1.5 text-[11px] px-2.5 py-0.5 rounded-full border ${catBadgeColor} font-semibold">
-                ${catIcon}
-                <span>${item.category.toUpperCase()}</span>
-              </span>
-              <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
-                ${window.TWS_ICONS ? TWS_ICONS.mapPin('w-3 h-3 text-slate-400') : ''}
-                <span>${item.location}</span>
-              </span>
+    html += `
+      <div class="space-y-4">
+        <!-- Phase Divider Banner -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-r ${meta.theme} border shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl font-black font-mono flex items-center justify-center shrink-0 shadow-2xs border ${meta.badgeColor}">
+              ${pId}
+            </span>
+            <div>
+              <h3 class="text-sm sm:text-base font-bold text-[#0B1E36]">${phaseHeading}</h3>
+              <p class="text-xs text-slate-500 font-mono mt-0.5">${meta.time} • ${items.length} ${isEn ? 'events' : 'รายการ'}</p>
             </div>
           </div>
+          <span class="text-[11px] font-bold font-mono px-3 py-1 rounded-full ${meta.badgeColor} border self-start sm:self-auto shrink-0">
+            ${items.length} ${isEn ? 'Matches / Events' : 'รายการกิจกรรม'}
+          </span>
+        </div>
 
-          <h3 class="text-base sm:text-lg font-bold text-[#0B1E36] flex items-center gap-2 flex-wrap">
-            <span>${item.title}</span>
-            <span class="text-xs sm:text-sm text-slate-500 font-normal">(${item.thaiTitle})</span>
-          </h3>
-
-          <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">${item.description}</p>
-
-          ${item.rules ? `
-            <div class="mt-3 p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 flex items-start gap-2">
-              <span class="text-amber-700 font-bold shrink-0">กติกา/Directives:</span>
-              <span>${item.rules}</span>
-            </div>
-          ` : ''}
-
-          ${item.medals ? `
-            <div class="mt-2.5 flex items-center gap-1.5 text-xs font-semibold text-amber-800">
-              ${window.TWS_ICONS ? TWS_ICONS.medal('w-3.5 h-3.5 text-amber-600') : ''}
-              <span>เหรียญรางวัล:</span>
-              <span class="text-slate-700 font-normal">${item.medals}</span>
-            </div>
-          ` : ''}
-
-          ${item.rewards ? `
-            <div class="mt-2 flex items-center gap-1.5 text-xs font-semibold text-emerald-800">
-              ${window.TWS_ICONS ? TWS_ICONS.gift('w-3.5 h-3.5 text-emerald-600') : ''}
-              <span>รางวัลเกียรติยศ:</span>
-              <span class="text-slate-700 font-normal">${item.rewards}</span>
-            </div>
-          ` : ''}
+        <!-- Cards in Phase -->
+        <div class="space-y-3">
+          ${items.map(item => renderScheduleCard(item, isEn)).join('')}
         </div>
       </div>
     `;
-  }).join('');
+  });
+
+  container.innerHTML = html;
+}
+
+// Helper to render individual schedule card
+function renderScheduleCard(item, isEn) {
+  let catBadgeColor = 'bg-slate-100 text-slate-700 border-slate-200';
+  let catIcon = window.TWS_ICONS ? TWS_ICONS.clipboard('w-3.5 h-3.5') : '';
+
+  if (item.category === 'ceremony') {
+    catBadgeColor = 'bg-amber-50 text-amber-800 border-amber-200';
+    catIcon = window.TWS_ICONS ? TWS_ICONS.crown('w-3.5 h-3.5') : '';
+  } else if (item.category === 'track') {
+    catBadgeColor = 'bg-blue-50 text-blue-700 border-blue-200';
+    catIcon = window.TWS_ICONS ? TWS_ICONS.runnerTrack('w-3.5 h-3.5') : '';
+  } else if (item.category === 'court') {
+    catBadgeColor = 'bg-emerald-50 text-emerald-700 border-emerald-200';
+    catIcon = window.TWS_ICONS ? TWS_ICONS.ball('w-3.5 h-3.5') : '';
+  } else if (item.category === 'family') {
+    catBadgeColor = 'bg-purple-50 text-purple-700 border-purple-200';
+    catIcon = window.TWS_ICONS ? TWS_ICONS.users('w-3.5 h-3.5') : '';
+  } else if (item.category === 'special') {
+    catBadgeColor = 'bg-rose-50 text-rose-700 border-rose-200';
+    catIcon = window.TWS_ICONS ? TWS_ICONS.sparkles('w-3.5 h-3.5') : '';
+  }
+
+  const primaryTitle = isEn ? item.title : item.thaiTitle;
+  const secondaryTitle = isEn ? item.thaiTitle : item.title;
+  const hasCallTime = (item.callTime && item.callTime !== '–');
+  const isSport = (item.category === 'track' || item.category === 'court');
+
+  return `
+    <div class="rounded-2xl bg-white border ${item.highlight ? 'border-amber-300 ring-1 ring-amber-100' : 'border-slate-200'} shadow-xs hover:border-slate-400 hover:shadow-sm transition p-4 sm:p-5">
+      <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-4">
+        
+        <!-- Left: Time & Badges -->
+        <div class="lg:w-60 shrink-0 space-y-2">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-base sm:text-lg font-black text-[#0B1E36] font-mono tracking-tight">${item.time} น.</span>
+            ${item.eventCode ? `
+              <span class="inline-flex items-center text-[11px] px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 font-mono font-bold">
+                ${item.eventCode}
+              </span>
+            ` : ''}
+          </div>
+
+          <!-- Prominent Call Time Alert Pill -->
+          ${hasCallTime ? `
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200 font-bold font-mono text-xs shadow-2xs">
+              <svg class="w-3.5 h-3.5 text-rose-600 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+              <span>Call: ${item.callTime} น. (ก่อน 10 นาที)</span>
+            </div>
+          ` : `
+            <span class="text-[11px] text-slate-400 font-mono">ไม่มี Call Time (ตามกำหนดการ)</span>
+          `}
+
+          <!-- Category & Venue -->
+          <div class="flex flex-wrap items-center gap-2 pt-1">
+            <span class="inline-flex items-center gap-1 text-[11px] px-2.5 py-0.5 rounded-full border ${catBadgeColor} font-semibold">
+              ${catIcon}
+              <span>${item.category.toUpperCase()}</span>
+            </span>
+            <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+              ${window.TWS_ICONS ? TWS_ICONS.mapPin('w-3 h-3 text-slate-400') : ''}
+              <span>${item.location}</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Middle: Title, Description & Directives -->
+        <div class="flex-1 space-y-2">
+          <div>
+            <h4 class="text-base sm:text-lg font-bold text-[#0B1E36] leading-snug">
+              <span>${primaryTitle}</span>
+              ${secondaryTitle ? `<span class="text-xs sm:text-sm text-slate-400 font-normal ml-1">(${secondaryTitle})</span>` : ''}
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">${item.description}</p>
+          </div>
+
+          <!-- Rules / Quota Directives -->
+          ${item.rules ? `
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 flex items-start gap-2">
+              <span class="text-amber-700 font-bold shrink-0">${isEn ? 'Rules/Directives:' : 'กติกา/โควตา:'}</span>
+              <span class="leading-relaxed">${item.rules}</span>
+            </div>
+          ` : ''}
+
+          <!-- Medals / Rewards -->
+          <div class="flex flex-wrap items-center gap-4 pt-1">
+            ${item.medals ? `
+              <div class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-800">
+                ${window.TWS_ICONS ? TWS_ICONS.medal('w-3.5 h-3.5 text-amber-600') : ''}
+                <span>${item.medals}</span>
+              </div>
+            ` : ''}
+            ${item.rewards ? `
+              <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800">
+                ${window.TWS_ICONS ? TWS_ICONS.gift('w-3.5 h-3.5 text-emerald-600') : ''}
+                <span>${item.rewards}</span>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+
+        <!-- Right: Action Jump Buttons -->
+        <div class="lg:w-44 shrink-0 flex flex-row lg:flex-col gap-2 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          ${isSport ? `
+            <button 
+              onclick="switchTab('callroom')" 
+              class="flex-1 lg:flex-none inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200 transition shadow-2xs"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+              <span>${isEn ? 'Call Room' : 'ห้องรายงานตัว'} ↗</span>
+            </button>
+            <button 
+              onclick="switchTab('event-registration')" 
+              class="flex-1 lg:flex-none inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 hover:bg-amber-100 border border-amber-200 transition shadow-2xs"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+              <span>${isEn ? 'Assign Slots' : 'ลงชื่อโควตา'} ↗</span>
+            </button>
+          ` : `
+            <button 
+              onclick="switchTab('callroom')" 
+              class="flex-1 lg:flex-none inline-flex items-center justify-center gap-1 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200 transition"
+            >
+              <span>${isEn ? 'Call Schedule' : 'เวลารายงานตัว'} ↗</span>
+            </button>
+          `}
+        </div>
+
+      </div>
+    </div>
+  `;
+}
+
+function resetScheduleFilters() {
+  APP_STATE.schedulePhase = 'all';
+  APP_STATE.scheduleFilter = 'all';
+  APP_STATE.scheduleSearch = '';
+  const searchInput = document.getElementById('schedule-search-input');
+  if (searchInput) searchInput.value = '';
+  
+  document.querySelectorAll('[data-schedule-filter]').forEach(b => {
+    b.className = 'px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+  });
+  const allCatBtn = document.querySelector('[data-schedule-filter="all"]');
+  if (allCatBtn) allCatBtn.className = 'px-3 py-1.5 rounded-full text-xs font-bold bg-[#0B1E36] text-white shadow-2xs transition';
+
+  renderScheduleView();
 }
 
 // ==========================================
