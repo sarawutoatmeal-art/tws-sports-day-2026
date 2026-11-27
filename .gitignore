@@ -1,3 +1,18 @@
-serve.ps1
+# OS & Editor artifacts
 .DS_Store
 Thumbs.db
+*.bak
+*.orig
+*~
+.vscode/
+.idea/
+
+# Temporary dumps & extraction archives
+*_extracted/
+*.clixml
+*.tmp
+*.log
+*.zip
+
+# Local dev server
+serve.ps1

@@ -15,17 +15,18 @@ An interactive, all-in-one information hub and athlete database for Techawit Sch
 
 ## 🚀 Key Features for Teachers
 
-### 1. ⚔️ Complete 232-Student Athlete Database
-- All 232 primary students across 11 classes (Grades 1 to 6) cleanly categorized by Kingdom color (58 students per house).
+### 1. ⚔️ Complete 230-Student Athlete Database
+- All 230 primary students across 11 classes (Grades 1 to 6) cleanly categorized by Kingdom color (57–58 students per house).
 - Filter by **Kingdom Color**, **Grade / Class**, **Gender**, and **Participation Status**.
 - Real-time search by student nickname or full name.
-- **Interactive Event Assignment**: Click "✏️ Edit Sports" on any student to register them for eligible events.
+- **Interactive Event Assignment & Quota Locking**: Quota-based athlete registration per sport with locked capacity slots and soft validation (shows red warning badge on grade/gender mismatch while allowing teacher flexibility).
+- **Split Squad Football (9 players per house)**: Divided into 1st half G3-4 (4 players), 2nd half G5-6 (4 players), and 1 continuous Higher Grade Goalkeeper.
 - **Target Tracking**: Real-time badges for:
   - `⚠️ 0 Events` (Needs attention)
   - `1 Event` (Good)
   - `✓ 2 Events` (Optimal Target)
   - `⚡ 3+ Events` (Sub / Reserve)
-- **Data Persistence**: Automatically saves edits to the teacher's browser `localStorage`.
+- **Data Persistence**: Automatically saves edits to browser `localStorage` and synchronizes with Google Sheets.
 - **Export & Print**: One-click **Export to CSV** or **Print A4 Roster**.
 
 ### 2. 📋 Teacher Duties & Staff Search
@@ -44,33 +45,84 @@ An interactive, all-in-one information hub and athlete database for Techawit Sch
 - Teachers can type their name into the search bar to immediately see all their assigned stations and roles.
 
 ### 3. ⏱️ Event Day Schedule & Timeline (08:00 – 12:15)
-- Timeline tracking every session from registration to the grand closing ceremony.
+- Prominent Schedule board organized into 5 intuitive chronological phases:
+  - Phase 1: Registration & Opening Ceremony (08:00 – 08:45)
+  - Phase 2: Morning Sprint & Track Preliminaries (08:45 – 09:45)
+  - Phase 3: Court Finals & Team Ball Games (09:45 – 10:45)
+  - Phase 4: Championship Relays & Family Fun (10:45 – 11:30)
+  - Phase 5: Exhibition Matches & Grand Closing (11:30 – 12:15)
 - Highlights athlete **Call Times** (เวลาเรียกรวม) in red/rose badges so teachers can marshal athletes on time.
 - Filter by Category: Sprint/Relays, Court Sports, Family Games, Special Exhibition Matches, and Ceremonies.
 
-### 4. 🏅 Sports Handbook & Medal Stakes (186 Medals)
-- Breakdown of 62 Gold, 62 Silver, and 62 Bronze medals across the 5 primary sports.
+### 4. 🏅 Sports Handbook & Medal Stakes (201 Medals)
+- Official breakdown of 67 Gold, 67 Silver, and 67 Bronze medals across primary sports and games.
 - Official guidelines, quotas, and rules for Family Games (Fastball, Hula Hoop, 3-Legged Race) and Special Parent/Teacher Matches.
 
-### 5. 🔗 Sport Entry Hub & Direct Document Links
-- Direct access cards for:
-  - Master Handbook (Google Docs)
-  - Match Tournament Brackets (Google Sheets)
-  - Student Master Roster (Google Sheets)
-- Clear summaries of quotas, age divisions, and regulations.
+### 5. 🌐 Full Thai / English Bilingual Switcher
+- Instant one-click toggle between Thai and English across the entire interface (navigation, headings, tables, statuses, buttons).
 
-### 6. 👑 4 Kingdom Themes & Posters
-- High-resolution visual posters, mottos, and house teacher listings for each Kingdom.
+---
+
+## 📁 Clean Backend Architecture & Directory Structure
+
+```text
+tws-sports-day-2026/
+├── index.html                 # Main web portal application
+├── handbook-en.html           # Standalone English handbook
+├── netlify.toml               # Netlify deployment configuration
+├── ADMIN_DATA_GUIDE.md        # Comprehensive backend administration & data guide
+├── README.md                  # Project overview & documentation
+├── serve.ps1                  # Resilient local HTTP server (port 8085)
+├── google-apps-script-sync.js # Google Sheets cloud sync script
+├── assets/                    # Production frontend runtime
+│   ├── css/styles.css         # Responsive styling
+│   └── js/
+│       ├── app.js             # Main controller & navigation router
+│       ├── event-registration.js # Slot quotas & soft validation
+│       ├── students-data.js   # 230 Primary students master dataset
+│       ├── schedule-data.js   # 41 Timeline events & 201 medals master
+│       ├── duties-data.js     # Staff duty assignments
+│       ├── links-data.js      # Sports quota rules & external doc links
+│       ├── kindergarten-data.js # Kindergarten cross-reference data
+│       ├── i18n.js            # Thai/English bilingual dictionary
+│       └── icons.js           # SVG icon components
+├── data/                      # Structured data & exported rosters
+│   ├── students_roster.csv    # UTF-8 CSV roster for Microsoft Excel
+│   ├── students_roster.json   # JSON formatted roster
+│   └── source_sheets/         # Original Excel master sheets archive
+└── tools/                     # Backend maintenance & validation tools
+    ├── README.md              # Tools documentation
+    ├── validate_data_integrity.ps1 # 13-point data sanity tester
+    ├── export_roster.ps1      # Student roster CSV/JSON exporter
+    └── scripts/               # Archive of one-off inspection scripts
+```
+
+---
+
+## 🛠️ Backend Maintenance & Sanity Testing
+
+To ensure data integrity after making edits to student or schedule files:
+
+```powershell
+# Run the 13-point automated data integrity test
+.\tools\validate_data_integrity.ps1
+
+# Export fresh CSV and JSON rosters from students-data.js
+.\tools\export_roster.ps1
+```
+
+For complete instructions on editing students, updating schedule/call times, modifying sport quotas, and syncing with Google Sheets, see [ADMIN_DATA_GUIDE.md](ADMIN_DATA_GUIDE.md).
 
 ---
 
 ## 💻 How to Run Locally
 
-### Option A: Direct Open
-Double-click `index.html` to open it in Chrome, Edge, Safari, or Firefox.
-
-### Option B: Local Web Server (Recommended)
-Double-click `start_server.bat` in Windows. It starts a lightweight web server on `http://localhost:8080` and opens your browser automatically.
+### Resilient Local Server (Recommended)
+Run in PowerShell:
+```powershell
+.\serve.ps1
+```
+This serves the application at `http://localhost:8085` with automatic port fallback and opens your browser.
 
 ---
 
